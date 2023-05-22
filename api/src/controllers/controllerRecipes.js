@@ -1,41 +1,11 @@
-const axios = require("axios")
 require('dotenv').config();
-const {DB_APi_KEY} = process.env;
+const { DB_APi_KEY } = process.env;
+const axios = require("axios")
+const { Recipe, Diet } = require("../db");
 
-/*
-GET | /recipes/:idRecipe
-Esta ruta obtiene el detalle de una receta específica. Es decir que devuelve un objeto con la información pedida en el detalle de una receta.
-La receta es recibida por parámetro (ID).
-Tiene que incluir los datos de los tipos de dietas asociados a la receta.
-Debe funcionar tanto para las recetas de la API como para las de la base de datos.
-*/
-const getByIdApi = async (id) =>{
- const responseApi = (await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${DB_APi_KEY}`)).data
-let  responseInfo = {
-    id: responseApi.id,
-    name: responseApi.title,
-    image: responseApi.image,
-    summary: responseApi.summary,
-    healthScore: responseApi.healthScore,
-    steps: responseApi.analyzedInstructions[0]?.steps.map((e)=>{
-        return{
-            number: e.number,
-            step: e.step
-        }
-    }),
-    score: responseApi.winePairing.productMatches[0]?.score,
-    diets: responseApi.diets,
-   }
-   return responseInfo
-}
 
-/*
-📍 GET | /recipes/name?="..."
-Esta ruta debe obtener todas aquellas recetas que coincidan con el nombre recibido por query. (No es necesario que sea una coincidencia exacta).
-Debe poder buscarla independientemente de mayúsculas o minúsculas.
-Si no existe la receta, debe mostrar un mensaje adecuado.
-Debe buscar tanto las de la API como las de la base de datos.
-*/
+
+//-------All-Food--Api---------
 const getAllFoodApi = async () => {
     let responseApi = (await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=100&addRecipeInformation=true&apiKey=${DB_APi_KEY}`)).data
     let result = responseApi.results.map((e)=>{
@@ -54,10 +24,58 @@ const getAllFoodApi = async () => {
             diets: e.diets,
         }
     })
-    return result
+    return result;
 }
+
+//------All-Food--Db-------
+const getAllFoodDb = async () => {
+  const responseDB = await Recipe.findAll();
+  return responseDB
+}
+
+//--------All-Food-------
+const getAllFood = async () => {
+ const [ infoApi, infoDb ] = await Promise.all([getAllFoodApi(), getAllFoodDb()])
+ return [...infoApi, ...infoDb]
+}
+
+//---------ID--API---------
+const getByIdApi = async (id) =>{
+ const responseApi = (await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${DB_APi_KEY}`)).data
+const responseInfo = {
+    id: responseApi.id,
+    name: responseApi.title,
+    image: responseApi.image,
+    summary: responseApi.summary,
+    healthScore: responseApi.healthScore,
+    steps: responseApi.analyzedInstructions[0]?.steps.map((e)=>{
+        return{
+            number: e.number,
+            step: e.step
+        }
+    }),
+    score: responseApi.winePairing.productMatches[0]?.score,
+    diets: responseApi.diets,
+   }
+   return responseInfo
+}
+
+/*
+POST | /recipes
+Esta ruta recibirá todos los datos necesarios para crear una nueva receta y relacionarla con los tipos de dieta solicitados.
+Toda la información debe ser recibida por body.
+Debe crear la receta en la base de datos, y esta debe estar relacionada con los tipos de dieta indicados (al menos uno).
+*/
+const postRecipeDB = async (name,image,summary,score,healthScore,steps,diets) => {
+  const responseRecipe = await Recipe.create({name,image,summary,score,healthScore,steps});
+  const responseDiet = await Diet.findAll({where: { name: diets }})
+  await responseRecipe.addDiet(responseDiet);
+  return responseRecipe;
+}  
+
 
 module.exports = {
     getByIdApi,
-    getAllFoodApi
+    getAllFood,
+    postRecipeDB,
 }
