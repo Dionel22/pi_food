@@ -1,7 +1,7 @@
 .div{
     display: flex;
     position: absolute;
-    background-color: rgba(93, 42, 1, 0.7);
+    background-color: rgba(93, 42, 1, 0.628);
     border: 1px solid black;
     border-radius: 10px;
     justify-content: center;
@@ -26,7 +26,7 @@
     bottom: 30%;
     font-size: 12px;
     font-family: Heavitas;
-    color: antiquewhite;
+    color: rgb(255, 255, 255);
 }
 .bien{
     display: flex;
