@@ -1,0 +1,62 @@
+.div{
+    display: flex;
+    position: absolute;
+    background-color: rgba(93, 42, 1, 0.7);
+    border: 1px solid black;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 200px;
+    left: 30%;
+    top: 150px;
+    box-shadow: 3px 3px 3px 3px rgba(14, 14, 14, 0.458);
+}
+
+.h2{
+    display: flex;
+    position: absolute;
+    bottom: 70%;
+    font-family: Heavitas;
+    color: rgb(255, 255, 255);
+}
+.p{
+    display: flex;
+    position: absolute;
+    bottom: 30%;
+    font-size: 12px;
+    font-family: Heavitas;
+    color: antiquewhite;
+}
+.bien{
+    display: flex;
+    position: absolute;
+    bottom: 55%;
+    font-family: Heavitas;
+    color: rgb(255, 255, 255);
+}
+.boton{
+    display: flex;
+    position: relative;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.891);
+    color: rgb(40, 150, 7);
+    font-size: 15px;
+    font-family: Insaniburger;
+    outline: none;
+    border: 1px solid black;
+    top: 75px;
+}
+
+.link  button:hover{
+    background-color: #04a104fa;
+    color: rgb(255, 255, 255);
+ }
+ .link button:active{
+    background-color: rgb(240, 17, 17);
+    color: rgb(255, 255, 255);
+ }
+
+.link{
+    text-decoration: none;
+}
