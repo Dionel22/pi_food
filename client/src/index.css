@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url("https://media-front.elmostrador.cl/2021/11/file-20211112-15043-xoxxmg.jpeg");
+  background: url("https://www.objetivobienestar.com/uploads/s1/21/29/76/6/tipos-de-dietas-vegetarianas-y-sus-beneficios-para-la-salud.webp");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -19,3 +19,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/*
+https://media-front.elmostrador.cl/2021/11/file-20211112-15043-xoxxmg.jpeg
+
+https://www.objetivobienestar.com/uploads/s1/21/29/76/6/tipos-de-dietas-vegetarianas-y-sus-beneficios-para-la-salud.webp
+*/
