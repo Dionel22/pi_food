@@ -2,12 +2,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Cards from "../../components/Cards/Cards";
-import NavBar from "../../components/NavBar/NavBar";
 import Paginado from "../../components/Paginado/Paginado";
 import { getAllFoods, ordenAseByDec, ordenByApiAndDb, ordenByDiets, ordenFood } from "../../redux/Actions/action";
-/*
-Paginado: el listado de recetas se hará por partes. Tu SPA debe contar con un paginado que muestre un total de 9 recetas por página.
-*/
+
 export default function Home() {
   const dispatch = useDispatch()
   const allFoods = useSelector((state) => state.allFoods)
@@ -16,7 +13,7 @@ export default function Home() {
   const currentPagina = 9;
   const nextPagina = pagina * currentPagina;
   const lastPagina = nextPagina - currentPagina;
-  const allFoodsPag = allFoods.msg ? null: allFoods.slice(lastPagina,nextPagina);
+  const allFoodsPag =  allFoods.slice(lastPagina,nextPagina);
 
 
  const handlesPag = (value) =>{
@@ -48,7 +45,6 @@ export default function Home() {
 
   return (
     <div>
-        <NavBar/>
         {/*ORDEN POR API O DB*/}
         <select onChange={handlesOrdenByApiAndDb}>
           <option value="Api">Api</option>
@@ -80,6 +76,7 @@ export default function Home() {
           <option value="ascendentemente">Aa-Zz</option>
           <option value="descendentemente">Zz-Aa</option>
         </select>
+
         <Paginado currentPagina={currentPagina} allFoods={allFoods.length} handlesPag={handlesPag} handlesPagNext={handlesPagNext} pagina={pagina}/>
         <Cards allFoods={allFoodsPag}/>
     </div>

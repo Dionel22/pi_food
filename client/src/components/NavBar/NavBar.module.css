@@ -5,6 +5,8 @@
     align-items: center;
     margin: 10px;
     background: rgba(106, 46, 1, 0.742);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(20px);
     height: 50px;
     border-radius: 5px;
     box-shadow: 3px 3px 3px 3px rgba(14, 14, 14, 0.389);

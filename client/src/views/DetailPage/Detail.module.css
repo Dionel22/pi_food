@@ -1,0 +1,107 @@
+.div{
+    display: grid;
+    position: relative;
+    background-color: rgba(0, 255, 255, 0.549);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    margin: 10px;
+    border: 1px solid black;
+    width: 900px;
+    height: 500px;
+    left: 25px;
+}
+
+.image{
+    display: grid;
+    position: absolute;
+    border-radius: 10px;
+    bottom: 160px;
+    left: 20px;
+    width: 400px;
+    margin: 5px;
+}
+
+.name{
+    display: grid;
+    position: absolute;
+    bottom: 455px;
+    left: 25%;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    font-family: Heavitas;
+}
+
+.id{
+    display: grid;
+    position: absolute;
+    bottom: 435px;
+    left: 3%;
+    font-size: 13px;
+    margin: 5px;
+    font-family: Heavitas;
+}
+
+.re{
+    display: grid;
+    position: absolute;
+    left: 55%;
+    top: 63px;
+    width: 350px;
+    margin: 5px;
+    font-size: 10px;
+    font-family: Heavitas;
+}
+
+.diet{
+    display: grid;
+    position: relative;
+    font-family: Heavitas;
+    left: 1%;
+    top:305px;
+    width: 330px;
+    margin: 5px;
+    font-size: 8px;
+}
+.Hdiet{
+    display: grid;
+    position: relative;
+    font-family: Heavitas;
+    left: 1%;
+    top:300px;
+    width: 330px;
+    margin: 5px;
+    font-size: 12px;
+}
+
+.paso{
+    display: grid;
+    position: relative;
+    font-family: Heavitas;
+    left: 55%;
+    top: 360px;
+    width: 330px;
+    margin: 5px;
+    font-size: 8px;
+}
+
+.Hpaso{
+    display: grid;
+    position: relative;
+    font-family: Heavitas;
+    left: 55%;
+    top: 350px;
+    width: 330px;
+    margin: 5px;
+    font-size: 12px;
+}
+.healthScore{
+    display: grid;
+    position: absolute;
+    font-family: Heavitas;
+    right: 85%;
+    top: 70%;
+    margin: 5px;
+    font-size: 10px;
+}
