@@ -1,9 +1,10 @@
-import { All_FOOD, GET_BY_FILTER_DIETS, GET_BY_NAME, GET_BY_ORDEN_API_DB, GET_BY_ORDEN_ASC_O_DES, GET_BY_ORDEN_FOOD, GET_DETAIL } from "../Actions/types"
+import { All_FOOD, GET_BY_FILTER_DIETS, GET_BY_NAME, GET_BY_ORDEN_API_DB, GET_BY_ORDEN_ASC_O_DES, GET_BY_ORDEN_FOOD, GET_DETAIL, GET_DIETS, POST_FOOD } from "../Actions/types"
 
 const inicialState = {
     allFoods: [],
     allFoodsCopy: [],
     details: [],
+    diets: []
 }
 
 const reduce = (state = inicialState, action) => {
@@ -13,6 +14,11 @@ const reduce = (state = inicialState, action) => {
                 ...state,
                 allFoods: action.payload,
                 allFoodsCopy: action.payload
+            }
+        case GET_DIETS:
+            return{
+                ...state,
+                diets: action.payload
             }
         case GET_BY_NAME:
             return{
@@ -54,6 +60,10 @@ const reduce = (state = inicialState, action) => {
             return {
                 ...state,
                 details: action.payload
+            }
+        case POST_FOOD:
+            return{
+                ...state
             }
         default:
           return {...state}
