@@ -1,4 +1,4 @@
-//import React from 'react'
+import style from './Paginado.module.css'
 
 export default function Paginado({ pagina, allFoods, currentPagina, handlesPag }) {
    // console.log(props)
@@ -28,9 +28,9 @@ export default function Paginado({ pagina, allFoods, currentPagina, handlesPag }
 
   return (
     <div>
-        <button onClick={handlesButtonLast}>last</button>
-        {pageNumberArray?.map((e, i)=> <button key={i} onClick={()=>handlesButton(e)}>{e}</button>)}
-        <button onClick={handlesButtonNext}>next</button>
+        <button className={style.boton} onClick={handlesButtonLast}>last</button>
+        {pageNumberArray?.map((e, i)=> <button className={e === currentPageNumber ? style.boton :style.ahora} key={i} onClick={()=>handlesButton(e)}>{e}</button>)}
+        <button className={style.boton} onClick={handlesButtonNext}>next</button>
     </div>
   )
 }

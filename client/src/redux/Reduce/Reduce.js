@@ -44,8 +44,13 @@ const reduce = (state = inicialState, action) => {
                 allFoods: filt
              }
         case GET_BY_ORDEN_API_DB:
-            const filtrarOrigen = action.payload === "Api" ? state.allFoodsCopy.filter((food)=> !isNaN(food.id)? food.id :null): state.allFoodsCopy.filter((food)=> isNaN(food.id)? food.id :null)
-
+            const filtrarOrigen = action.payload === "All" ? state.allFoodsCopy :state.allFoodsCopy.filter((food)=> {
+                if(action.payload === "Api"){
+                   return !isNaN(food.id) ? food.id :null
+                   }
+                   return isNaN(food.id) ? food.id : null
+                }) 
+            
             return{
                 ...state,
                 allFoods: filtrarOrigen,

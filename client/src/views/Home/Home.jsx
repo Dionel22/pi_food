@@ -1,4 +1,4 @@
-//import style from './Home.module.css'
+import style from './Home.module.css'
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Cards from "../../components/Cards/Cards";
@@ -8,12 +8,12 @@ import { getAllFoods, ordenAseByDec, ordenByApiAndDb, ordenByDiets, ordenFood } 
 export default function Home() {
   const dispatch = useDispatch()
   const allFoods = useSelector((state) => state.allFoods)
-  console.log(allFoods)
+ // console.log(allFoods)
   const [pagina, setPagina] = useState(1)
   const currentPagina = 9;
   const nextPagina = pagina * currentPagina;
   const lastPagina = nextPagina - currentPagina;
-  const allFoodsPag =  allFoods.slice(lastPagina,nextPagina);
+  const allFoodsPag = allFoods.msg ? allFoods: allFoods.slice(lastPagina,nextPagina);
 
 
  const handlesPag = (value) =>{
@@ -46,13 +46,16 @@ export default function Home() {
   return (
     <div>
         {/*ORDEN POR API O DB*/}
-        <select onChange={handlesOrdenByApiAndDb}>
+        <select className={style.boton} defaultValue ='msg' onChange={handlesOrdenByApiAndDb}>
+          <option value="msg" disabled>Created In</option>
+          <option value="All">All</option>
           <option value="Api">Api</option>
           <option value="Db">Db</option>
         </select>
 
         {/*ORDEN POR DIETA*/}
-        <select onChange={handlesOrdenByDiets}>
+        <select className={style.boton} defaultValue ='msg' onChange={handlesOrdenByDiets}>
+        <option value="msg" disabled>Type of Diets</option>
           <option value="gluten free">gluten free</option>
           <option value="dairy free">dairy free</option>
           <option value="lacto ovo vegetarian">lacto ovo vegetarian</option>
@@ -66,15 +69,17 @@ export default function Home() {
         </select>
 
         {/*ORDEN POR comida*/}
-        <select onChange={handlesOrdenByComida}>
-          <option value="alto">healthy food++</option>
-          <option value="bajo">healthy food--</option>
+        <select className={style.boton} defaultValue ='msg' onChange={handlesOrdenByComida}>
+        <option value="msg" disabled>Health Score</option>
+          <option value="alto">100 to 0</option>
+          <option value="bajo">0 to 100</option>
         </select>
 
         {/*ORDEN POR ASC*/}
-        <select onChange={handlesOrdenByAseAndDec}>
-          <option value="ascendentemente">Aa-Zz</option>
-          <option value="descendentemente">Zz-Aa</option>
+        <select className={style.boton} defaultValue ='msg' onChange={handlesOrdenByAseAndDec}>
+        <option value="msg" disabled>Alphabetic</option>
+          <option value="ascendentemente">A-Z</option>
+          <option value="descendentemente">Z-A</option>
         </select>
 
         <Paginado currentPagina={currentPagina} allFoods={allFoods.length} handlesPag={handlesPag} handlesPagNext={handlesPagNext} pagina={pagina}/>

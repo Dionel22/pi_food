@@ -1,0 +1,17 @@
+.boton{
+    background-color: rgb(108, 61, 3);
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px;
+    outline: none;
+}
+
+.div  button:hover{
+    background-color: #fffffffa;
+    color: rgb(192, 10, 10);
+  }
+.div button:active{
+    background-color: rgb(244, 75, 112);
+    color: azure;
+  }

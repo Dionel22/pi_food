@@ -5,7 +5,7 @@ export default function Cards(props) {
   //console.log(props)
   return (
     <div className={style.card_list}>
-        {props.allFoods?.map((food)=>{
+        {props.allFoods.msg? <Card msg={props.allFoods.msg}/> :props.allFoods.map((food)=>{
             return <Card key={food.id} id={food.id} title={food.title} image={food.image} diets={food.diets} />
         })}
         
