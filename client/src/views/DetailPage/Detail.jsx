@@ -7,10 +7,10 @@ import { getDetail } from "../../redux/Actions/action"
 export default function Detail() {
     const { id } = useParams()
     const dispatch = useDispatch()
-    const detail = useSelector((state)=> state.details)
+    let detail = useSelector((state)=> state.details)
     useEffect(()=>{
        dispatch(getDetail(id))
-     //  return ()=>{ detail = {}}
+       return ()=>{ detail = {}}
     },[dispatch, id])
     //console.log("jsjd", detail)
   return (
