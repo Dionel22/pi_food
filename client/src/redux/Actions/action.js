@@ -90,6 +90,7 @@ export const getDetail = (id) => {
 
 //crea food
 export const createFood = (body) => {
+  
   return async (dispatch) => {
     await axios.post(`http://localhost:3001/recipes`, body)
     //console.log("de",response)
