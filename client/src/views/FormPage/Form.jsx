@@ -1,4 +1,4 @@
-//import style from './Form.module.css'
+import style from './Form.module.css'
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { createFood, getAllDiets } from "../../redux/Actions/action";
@@ -128,15 +128,18 @@ export default function Form() {
    
     console.log("input", input)
   return (
-    <div>
+    <>
+    <div className={style.div}>
         <form >       
+        <h2 className={style.create}>CREATE BY FOOD</h2>
+        
         <input 
         type="text" 
         name="title" 
         value={input.title} 
         placeholder="Title"
         onChange={handlesImput}/>
-        <label>Title</label>
+        <label className={style.labelTitle}>Title</label>
         {error.title && <p>{error.title}</p>}
 
         <textarea
@@ -186,8 +189,9 @@ export default function Form() {
          {error.diets && <p>{error.diets}</p>/*handlesDeleteDiets */}
          <label>Diets</label>
 
-        <button onClick={handlesSumbit} >Create</button>
+        <button onClick={handlesSumbit} className={style.create_Boton} >Create</button>
         </form>
+
         {/*STEPS*/}
         {input.steps?.map((e,a)=>{
             return <button key={a} onClick={()=>handlesDeleteSteps({step: e.step, number: e.number})} >{e.number}: {e.step}</button>
@@ -198,5 +202,9 @@ export default function Form() {
             return <button key={i} onClick={()=>handlesDeleteDiets(e)}>{e}</button>
         })}
     </div>
+    <footer className={style.foo}>
+            <h4 className={style.H}>creado con amor @Dionel</h4>
+    </footer>
+    </>
   )
 }

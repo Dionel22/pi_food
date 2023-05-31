@@ -4,8 +4,9 @@
     justify-content: space-around;
     align-items: center;
     margin: 0px;
-    background: rgb(106, 47, 1);
-    
+    background: #688827b5;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(20px);
     height: 50px;
     box-shadow: 3px 3px 3px 3px rgba(14, 14, 14, 0.389);
 }
@@ -20,17 +21,27 @@
     outline: none;
     border-radius: 5px;
     border: 1px solid black;
-    background-color: rgb(10, 116, 2);
-    color: white;
+    background-color: #ec861a;
+    color: rgb(255, 255, 255);
     font-family: Heavitas;
 }
 
 .div button:hover{
     background-color: #fffffffa;
-    color: rgb(28, 148, 4);
+    color: #ec861a;
 }
 
 .div button:active{
     background-color: rgb(189, 23, 15);
     color: azure;
+}
+
+.select{
+    background-color: rgb(156, 49, 3);
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px;
+    justify-content: center;
+    outline: none;
 }

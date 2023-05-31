@@ -1,16 +1,17 @@
 .div{
     display: flex;
     position: relative;
-    background: linear-gradient(to
+    /*background: linear-gradient(to
     top, rgba(2, 100, 5, 0.871) 0%, rgba(2, 100, 5, 0.871) 50%, rgba(100, 43, 2, 0.871) 50%, rgba(100, 43, 2, 0.871) 100%
-    );
+    );*/
+    background-color: #ffffff54;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 10px;
     border: 1px solid black;
-    width: 250px;
+    width: 230px;
     height: 360px;
-    margin-top: 20px;
+    margin: 0;
     box-shadow: 3px 3px 3px 3px rgba(14, 14, 14, 0.683);
     cursor: pointer;
     transform: translate(
@@ -41,8 +42,6 @@
     box-shadow: 3px 3px 3px 3px rgba(14, 14, 14, 0.458);
 }
 
-
-
 .types{
     display: flex;
     position: relative;
@@ -52,7 +51,7 @@
     right: 190px;
     width: 150px;
     height: 10px;
-    color: #ffffff;
+    color: #000000;
     justify-content: center;
     align-items: center;
 }
@@ -62,7 +61,7 @@
     position: absolute;
     font-size: 14px;
     bottom: 88%;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -75,7 +74,7 @@
     font-size: 15px;
     bottom: 31%;
     left: 29%;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     justify-content: center;
     align-items: center;
     margin: 5px;
@@ -84,7 +83,7 @@
 .image{
     display: flex;
     position: relative;
-    width: 99%;
+    width: 97%;
     height: 50%;
     left: 3px;
     top: 11%;

@@ -1,11 +1,18 @@
-.back_card{
-    background-color: rgba(173, 172, 172, 0.446);
-    border: 1px solid black;
-    border-radius: 5px;
-    margin: 5px;
-    outline: none;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(20px);
+.foo{
+  background-color: black;
+  margin-top: 30px;
+  height: 25px;
+}
+.H{
+  display: flex;
+  position: relative;
+  color: white;
+  font-size: 12px;
+  top: 7px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
 }
 
 .boton{

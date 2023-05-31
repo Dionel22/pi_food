@@ -8,15 +8,16 @@ export default function Detail() {
     const { id } = useParams()
     const dispatch = useDispatch()
     let detail = useSelector((state)=> state.details)
+
     useEffect(()=>{
        dispatch(getDetail(id))
+       detail = {}
+       return ()=> detail
     },[dispatch, id])
-    useEffect(()=>{
-       return ()=>{ detail = {}}
-    },[])
 
     //console.log("jsjd", detail)
   return (
+    <>
     <div className={style.div}>
         <div>
             <h2 className={style.id}>Id: {detail.id}</h2>
@@ -29,16 +30,20 @@ export default function Detail() {
             {detail.diets?.map((e,i) => {
                 return <span key={i} className={style.diet} >{e.name}</span>  
             })}
+
             <h3 className={style.Hpaso}>Steps to Steps</h3>
+
+            <div className={style.boxSteps}>
             {detail.steps?.map((e, i) => {
-                return(
-                    <div key={i}>
-                        <p className={style.paso}>{e?.number}° {e?.step}</p>
-                    </div>
-                )
+                return <span key={i} className={style.paso}>{e?.number}° {e?.step}</span>
             })}
-            
+            </div>
         </div>
+        
     </div>
+        <footer className={style.foo}>
+            <h4 className={style.H}>creado con amor @Dionel</h4>
+        </footer>
+    </>
   )
 }
