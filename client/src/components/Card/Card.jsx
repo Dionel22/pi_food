@@ -10,12 +10,12 @@ export default function Card(props) {
             <img className={style.image} src={props.image} alt={props.title} />
           
              <h2 className={style.name} >{props.title}</h2>
-            <h1 className={style.diet}>types of diet</h1>
-            <li>
+            <div>
+            <h1 className={style.diet}>Types Of Diets</h1>
             {props.diets?.map((diet, index)=>{
-                return <ul key={index} className={style.types}>{diet?.name}</ul>
+                return <span key={index} className={style.types}>{diet.name}</span>
              })}
-         </li>
+        </div>
     </div>
     
     </Link>: 

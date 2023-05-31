@@ -45,6 +45,7 @@ export default function Home() {
 
   return (
     <div>
+       <div className={style.back_card}>
         {/*ORDEN POR API O DB*/}
         <select className={style.boton} defaultValue ='msg' onChange={handlesOrdenByApiAndDb}>
           <option value="msg" disabled>Created In</option>
@@ -81,9 +82,11 @@ export default function Home() {
           <option value="ascendentemente">A-Z</option>
           <option value="descendentemente">Z-A</option>
         </select>
-
+       
         <Paginado currentPagina={currentPagina} allFoods={allFoods.length} handlesPag={handlesPag} handlesPagNext={handlesPagNext} pagina={pagina}/>
+        
         <Cards allFoods={allFoodsPag}/>
+        </div>
     </div>
   )
 }

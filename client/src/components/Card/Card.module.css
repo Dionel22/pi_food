@@ -2,13 +2,26 @@
     display: flex;
     position: relative;
     background: linear-gradient(to
-    top, rgba(100, 43, 2, 0.871) 0%, rgba(100, 43, 2, 0.871) 50%, rgba(100, 43, 2, 0.871) 50%, rgba(100, 43, 2, 0.871) 100%
+    top, rgba(2, 100, 5, 0.871) 0%, rgba(2, 100, 5, 0.871) 50%, rgba(100, 43, 2, 0.871) 50%, rgba(100, 43, 2, 0.871) 100%
     );
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(20px);
     border-radius: 10px;
     border: 1px solid black;
     width: 250px;
-    height: 350px;
-    box-shadow: 3px 3px 3px 3px rgba(14, 14, 14, 0.458);
+    height: 360px;
+    margin-top: 20px;
+    box-shadow: 3px 3px 3px 3px rgba(14, 14, 14, 0.683);
+    cursor: pointer;
+    transform: translate(
+        0
+    );
+    transition: transform  0.25s ease-out;
+}
+.div:hover{
+    transform: scale(
+        1.03
+    );
 }
 
 .msg{
@@ -33,9 +46,12 @@
 .types{
     display: flex;
     position: relative;
-    font-size: 8px;
-    top: 45px;
-    margin: 5px;
+    font-size: 12px;
+    top: 68%;
+    margin: 3px;
+    right: 190px;
+    width: 150px;
+    height: 10px;
     color: #ffffff;
     justify-content: center;
     align-items: center;
@@ -44,28 +60,21 @@
 .name{
     display: flex;
     position: absolute;
-    font-size: 10px;
-    bottom: 90%;
-    color: rgb(255, 255, 255);
-    text-align: center;
-    margin: 5px;
-}
-.titulo{
-    display: flex;
-    position: absolute;
-    font-size: 20px;
-    bottom: 75%;
+    font-size: 14px;
+    bottom: 88%;
     color: rgb(255, 255, 255);
     justify-content: center;
     align-items: center;
+    text-align: center;
     margin: 5px;
 }
+
 .diet{
     display: flex;
     position: absolute;
-    font-size: 20px;
-    bottom: 30%;
-    left: 25%;
+    font-size: 15px;
+    bottom: 31%;
+    left: 29%;
     color: rgb(255, 255, 255);
     justify-content: center;
     align-items: center;
@@ -77,8 +86,8 @@
     position: relative;
     width: 99%;
     height: 50%;
-    left: 5px;
-    top: 10%;
+    left: 3px;
+    top: 11%;
     border-radius: 10px;
     border: 1px solid black;
 }

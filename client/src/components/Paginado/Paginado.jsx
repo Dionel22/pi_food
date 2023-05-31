@@ -27,7 +27,7 @@ export default function Paginado({ pagina, allFoods, currentPagina, handlesPag }
   }
 
   return (
-    <div>
+    <div >
         <button className={style.boton} onClick={handlesButtonLast}>last</button>
         {pageNumberArray?.map((e, i)=> <button className={e === currentPageNumber ? style.boton :style.ahora} key={i} onClick={()=>handlesButton(e)}>{e}</button>)}
         <button className={style.boton} onClick={handlesButtonNext}>next</button>

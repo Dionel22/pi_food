@@ -1,9 +1,11 @@
+
 .boton{
     margin: 5px;
     background: rgb(30, 153, 2);
     color: rgb(255, 255, 255);
     border-radius: 5px;
     border: 1px solid black;
+    cursor: pointer;
 }
 .ahora{
     margin: 5px;

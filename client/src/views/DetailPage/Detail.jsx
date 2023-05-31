@@ -10,8 +10,11 @@ export default function Detail() {
     let detail = useSelector((state)=> state.details)
     useEffect(()=>{
        dispatch(getDetail(id))
-       return ()=>{ detail = {}}
     },[dispatch, id])
+    useEffect(()=>{
+       return ()=>{ detail = {}}
+    },[])
+
     //console.log("jsjd", detail)
   return (
     <div className={style.div}>
@@ -19,9 +22,14 @@ export default function Detail() {
             <h2 className={style.id}>Id: {detail.id}</h2>
             <h2 className={style.name}>{detail.title}</h2>
             <img className={style.image} src={detail.image} alt={detail.title} />
-            <p className={style.re}>{detail.summary}</p>
+            <h2 className={style.Hsummary}>Summary</h2>
+            <p className={style.summary}>{detail.summary}</p>
             <h3  className={style.healthScore}>Health Score: {detail.healthScore}</h3>
-            <h3 className={style.Hpaso}>Steps</h3>
+             <h3 className={style.Hdiet}>Diets</h3>
+            {detail.diets?.map((e,i) => {
+                return <span key={i} className={style.diet} >{e.name}</span>  
+            })}
+            <h3 className={style.Hpaso}>Steps to Steps</h3>
             {detail.steps?.map((e, i) => {
                 return(
                     <div key={i}>
@@ -29,10 +37,7 @@ export default function Detail() {
                     </div>
                 )
             })}
-             <h3 className={style.Hdiet}>Diets</h3>
-            {detail.diets?.map((e,i) => {
-                return <p key={i} className={style.diet} >{e.name}</p>  
-            })}
+            
         </div>
     </div>
   )

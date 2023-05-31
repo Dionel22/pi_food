@@ -1,32 +1,33 @@
 .div{
     display: grid;
     position: relative;
-    background-color: rgba(0, 255, 255, 0.549);
+    background-color: #e19f06c7;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 20px;
     margin: 10px;
     border: 1px solid black;
     width: 900px;
-    height: 500px;
+    height: 730px;
     left: 25px;
+    box-shadow: 3px 3px 3px 3px rgba(14, 14, 14, 0.458);
 }
 
 .image{
     display: grid;
     position: absolute;
     border-radius: 10px;
-    bottom: 160px;
+    bottom: 395px;
     left: 20px;
-    width: 400px;
+    width: 405px;
     margin: 5px;
 }
 
 .name{
     display: grid;
     position: absolute;
-    bottom: 455px;
-    left: 25%;
+    bottom: 680px;
+    left: 3%;
     justify-content: center;
     align-items: center;
     margin: 5px;
@@ -36,21 +37,31 @@
 .id{
     display: grid;
     position: absolute;
-    bottom: 435px;
+    bottom: 665px;
     left: 3%;
     font-size: 13px;
     margin: 5px;
     font-family: Heavitas;
 }
 
-.re{
+.summary{
     display: grid;
     position: absolute;
     left: 55%;
     top: 63px;
     width: 350px;
     margin: 5px;
-    font-size: 10px;
+    font-size: 12px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.Hsummary{
+    display: grid;
+    position: absolute;
+    left: 55%;
+    top: 43px;
+    width: 350px;
+    margin: 5px;
+    font-size: 13px;
     font-family: Heavitas;
 }
 
@@ -58,18 +69,22 @@
     display: grid;
     position: relative;
     font-family: Heavitas;
-    left: 1%;
-    top:305px;
-    width: 330px;
+    left: 10px;
+    top:357px;
+    width: 150px;
     margin: 5px;
-    font-size: 8px;
+    font-size: 10px;
+    justify-content: center;
+    background-color: blueviolet;
+    border-radius: 3px;
+    
 }
 .Hdiet{
     display: grid;
     position: relative;
     font-family: Heavitas;
-    left: 1%;
-    top:300px;
+    right: 85px;
+    top:355px;
     width: 330px;
     margin: 5px;
     font-size: 12px;
@@ -78,20 +93,20 @@
 .paso{
     display: grid;
     position: relative;
-    font-family: Heavitas;
-    left: 55%;
-    top: 360px;
-    width: 330px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    left: 30%;
+    top: 338px;
+    width: 590px;
     margin: 5px;
-    font-size: 8px;
+    font-size: 12px;
 }
 
 .Hpaso{
     display: grid;
-    position: relative;
+    position: absolute;
     font-family: Heavitas;
-    left: 55%;
-    top: 350px;
+    left: 41%;
+    top: 362px;
     width: 330px;
     margin: 5px;
     font-size: 12px;
@@ -100,8 +115,17 @@
     display: grid;
     position: absolute;
     font-family: Heavitas;
-    right: 85%;
-    top: 70%;
+    right: 83%;
+    top: 46%;
     margin: 5px;
-    font-size: 10px;
+    font-size: 12px;
+}
+.div span:hover{
+    background-color: #fffffffa;
+    color: rgb(28, 148, 4);
+}
+
+.div span:active{
+    background-color: rgb(189, 23, 15);
+    color: azure;
 }

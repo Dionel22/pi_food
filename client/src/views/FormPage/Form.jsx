@@ -189,8 +189,8 @@ export default function Form() {
         <button onClick={handlesSumbit} >Create</button>
         </form>
         {/*STEPS*/}
-        {input.steps?.map((e)=>{
-            return <button key={e.number} onClick={()=>handlesDeleteSteps({step: e.step, number: e.number})} >{e.number}: {e.step}</button>
+        {input.steps?.map((e,a)=>{
+            return <button key={a} onClick={()=>handlesDeleteSteps({step: e.step, number: e.number})} >{e.number}: {e.step}</button>
         })}
 
         {/*DIETS*/}
