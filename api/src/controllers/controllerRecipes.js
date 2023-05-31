@@ -23,7 +23,9 @@ const getAllFoodApi = async () => {
                     step: el.step
                 }
             }),
-            diets: e.diets,
+            diets: e.diets.map(e=>{
+                return{name: e}
+            }),
         }
     })
     return result;
@@ -31,9 +33,12 @@ const getAllFoodApi = async () => {
 
 //------All-Food--Db-------
 const getAllFoodDb = async () => {
-  const responseDB = await Recipe.findAll({include: Diet});
-  return responseDB
-}
+    const recipes = await Recipe.findAll({
+      include: { model: Diet, attributes: ["name"], through: { attributes: [] } }
+    });
+ 
+    return recipes;
+  };
 
 //--------All-Food-------
 const getAllFood = async () => {
@@ -57,7 +62,9 @@ const responseInfo = {
         }
     }),
     score: responseApi.winePairing.productMatches[0]?.score,
-    diets: responseApi.diets,
+    diets: responseApi.diets.map((e)=> {
+        return {name: e}
+    }),
    }
    return responseInfo
 }
@@ -65,11 +72,10 @@ const responseInfo = {
 //--------ID--DB-----------
 const getByidDB = async (id) => {
     const recipe = await Recipe.findByPk(id, {
-        include: { model: Diet, attributes: ["name"] }
+        include: { model: Diet, attributes: ["name"], through: { attributes: [] } }
       });
-      const diets = recipe?.dataValues.diets.map((diet) => diet.name);
-
-      return { ...recipe.dataValues, diets };
+    console.log(recipe)
+    return recipe;
 }
 
 //---------POST----------
