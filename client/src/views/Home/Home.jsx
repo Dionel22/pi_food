@@ -33,8 +33,7 @@ export default function Home() {
     
         <Paginado currentPagina={currentPagina} allFoods={allFoods.length} handlesPag={handlesPag} handlesPagNext={handlesPagNext} pagina={pagina}/>
         <Cards allFoods={allFoodsPag}/>
-     
-        <footer className={style.foo}>
+        <footer className={allFoods.msg || allFoods.length === 0 ? style.fooFalla: style.foo}>
           <h4 className={style.H}>creado con amor @Dionel</h4>
         </footer>
     </>

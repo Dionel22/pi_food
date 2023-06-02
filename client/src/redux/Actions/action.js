@@ -87,10 +87,18 @@ export const getDetail = (id) => {
         })
   }  
 }
+export const getDesmonta = () => {
+  return async (dispatch) => {
+    const response = {};
+      return dispatch({
+            type: GET_DETAIL,
+            payload: response
+        })
+  }  
+}
 
 //crea food
 export const createFood = (body) => {
-  
   return async (dispatch) => {
     await axios.post(`http://localhost:3001/recipes`, body)
     //console.log("de",response)

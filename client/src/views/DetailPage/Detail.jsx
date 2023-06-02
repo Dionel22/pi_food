@@ -2,7 +2,7 @@ import style from './Detail.module.css'
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
-import { getDetail } from "../../redux/Actions/action"
+import { getDesmonta, getDetail } from "../../redux/Actions/action"
 
 export default function Detail() {
     const { id } = useParams()
@@ -11,14 +11,16 @@ export default function Detail() {
 
     useEffect(()=>{
        dispatch(getDetail(id))
-       detail = {}
-       return ()=> detail
     },[dispatch, id])
 
-    //console.log("jsjd", detail)
+    useEffect(()=>{
+      return ()=>  dispatch(getDesmonta())
+    },[])
+
+    console.log("jsjd", detail)
   return (
     <>
-    <div className={style.div}>
+    {!detail.msg ?<div className={style.div}>
         <div>
             <h2 className={style.id}>Id: {detail.id}</h2>
             <h2 className={style.name}>{detail.title}</h2>
@@ -40,7 +42,10 @@ export default function Detail() {
             </div>
         </div>
         
-    </div>
+    </div>: 
+        <div>
+            <h2 className={style.msg}>{detail.msg}. </h2>
+        </div>}
         <footer className={style.foo}>
             <h4 className={style.H}>creado con amor @Dionel</h4>
         </footer>

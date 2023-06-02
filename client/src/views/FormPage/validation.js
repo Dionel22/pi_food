@@ -25,7 +25,7 @@ const validation = (recipe) => {
       if (recipe.diets.length === 0) {
         errors.diets = "add at least one type of diet";
     }
-    console.log("error", errors)
+   // console.log("error", errors)
     return errors;
 }
 

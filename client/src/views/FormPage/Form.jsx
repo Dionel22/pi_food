@@ -12,20 +12,13 @@ export default function Form() {
         title: "",
         image: "",
         summary:"",
-        healthScore: 0,
+        healthScore: "",
         steps: [],
         diets: []
        })
     const [inputSteps, setInputSteps] = useState({});
 
-    const [error, setError] = useState({
-        title: "",
-        image: "",
-        summary:"",
-        healthScore: 0,
-        steps: [],
-        diets: []
-       })
+    const [error, setError] = useState({})
 
     useEffect(()=>{
        dispatch(getAllDiets())
@@ -49,7 +42,7 @@ export default function Form() {
                 [name]:  value
             })
 }
-    const handlesDeleteSteps = (data) => {
+   /* const handlesDeleteSteps = (data) => {
         const filtar = input.steps.filter((e) => e.step !== data.step && e.number !== data.number)
         setInput({
           ...input,
@@ -60,9 +53,10 @@ export default function Form() {
           steps: filtar
       }))  
 
-}
+}*/
     const handlesBoton = (e) => {
        e.preventDefault()
+       console.log(e)
        if (inputSteps.number && inputSteps.step) {
            console.log("----------------------")
         setInput({
@@ -116,7 +110,7 @@ export default function Form() {
                 title: "",
                 image: "",
                 summary:"",
-                healthScore: 0,
+                healthScore: "",
                 steps: [],
                 diets: []
                })
@@ -132,78 +126,108 @@ export default function Form() {
     <div className={style.div}>
         <form >       
         <h2 className={style.create}>CREATE BY FOOD</h2>
-        
+        <img className={style.cuchillo} src="https://cdn-icons-png.flaticon.com/512/47/47458.png" alt="cuchillo" />
+        <img className={style.tenedor} src="https://images.vexels.com/media/users/3/211791/isolated/preview/c03169a8744f4a8dad16bbb1c2c90d99-tenedor-de-cocina.png" alt="tenedor" />
+         <img className={style.gorro} src="https://i.pinimg.com/originals/f7/9a/66/f79a66c1ffc68a1b4492d98b7288d671.png" alt="tenedor" />
+        <div className={style.input_field_title}>
         <input 
+        required
         type="text" 
         name="title" 
-        value={input.title} 
-        placeholder="Title"
+        value={input.title}
+        className={style.inputTitle}
         onChange={handlesImput}/>
-        <label className={style.labelTitle}>Title</label>
-        {error.title && <p>{error.title}</p>}
-
+        <label className={input.title ? style.titleTop :style.labelTitle}>Title</label>
+        {error.title && <p className={style.pTitle}>{error.title}</p>}
+        </div>
+      
+      <div className={style.input_field_summary}>
         <textarea
         name="summary"
         value={input.summary}
+        className={style.inputSummary}
         onChange={handlesImput}></textarea>
-        <label>Summary</label>
-        {error.summary && <p>{error.summary}</p>}
+        <label className={input.summary ? style.summaryTop :style.labelSummary}>Summary</label>
+        {error.summary && <p className={style.pSummary}>{error.summary}</p>}
+      </div>
 
+      <div className={style.input_field_healthScore}>
         <input 
         type="number" 
         name="healthScore" 
+        min="0"
+        max="100"
+        className={style.inputHealthScore}
         onChange={handlesImput}/>
-        <label>Health Score</label>
-        {error.healthScore && <p>{error.healthScore}</p>}
-
+        <label className={input.healthScore ? style.HealthScoreTop :style.labelHealthScore}>Health Score</label>
+        {error.healthScore && <p className={style.pHealthScore}>{error.healthScore}</p>}
+        </div>
+       
+       <div className={style.input_field_Image}>
         <input 
         type="text" 
         name="image" 
+        className={style.inputImage}
+        value={input.image}
         onChange={handlesImput}/>
-        <label>Image url</label>
-        {error.image && <p>{error.image}</p>}
- <div>
+        <label className={input.image ? style.ImageTop : style.labelImage}>Image url</label>
+        {error.image && <p className={style.pImage}>{error.image}</p>}
+        </div>
+
+ <div className={style.input_field_Steps_Number}>
         <input 
         type="number" 
         name="number"
         min="1"
         max="10"
-        value={inputSteps.number? inputSteps.number: 0}
+        className={style.inputStepsNumber}
+        value={inputSteps.number ? inputSteps.number : 0}
         onChange={handlesSteps}/>
-        <label>Steps Number</label>
+        <label className={style.StepsNumberTop}>Number</label>
+</div>
 
-        <input 
+ <div className={style.input_field_Steps}>
+       <input 
         type="text" 
         name="step"
         value={inputSteps.step? inputSteps.step : ""}
+        className={style.inputSteps}
         onChange={handlesSteps}/>
-        <label>Steps</label>
+        <label className={style.StepsTop}>Steps</label>
+        </div>
+        {error.steps ? <p className={style.pSteps} >{error.steps}</p>: null}
 
-        {error.steps && <p>{error.steps}</p>}
-        <button onClick={handlesBoton}>listo</button>
-</div>
-         <select onChange={handlesDiets}>
+        <button className={style.boton_steps} onClick={handlesBoton}>listo</button>
+
+        <div className={style.input_field_Diets}>
+        {<select className={style.selectDiets} onChange={handlesDiets} defaultValue ='msg'>
+            <option value="msg" disabled>Diets</option>
          {allDiets?.map((e, i)=>{
-            return <option key={i} value={e.name} >{e.name}</option>
-         })}</select>
-         {error.diets && <p>{error.diets}</p>/*handlesDeleteDiets */}
-         <label>Diets</label>
-
+            return <option key={i} value={input.diets.length === 0 ? "msg" :e.name} >{e.name}</option>
+         })}</select>}
+         <label className={style.labelDiets}>Diets</label>
+         {error.diets && <p className={style.pDiets}>{error.diets}</p>/*handlesDeleteDiets */}
+         
+      </div>
         <button onClick={handlesSumbit} className={style.create_Boton} >Create</button>
-        </form>
+ </form>
 
-        {/*STEPS*/}
-        {input.steps?.map((e,a)=>{
-            return <button key={a} onClick={()=>handlesDeleteSteps({step: e.step, number: e.number})} >{e.number}: {e.step}</button>
-        })}
-
-        {/*DIETS*/}
-        {input.diets?.map((e,i)=>{
-            return <button key={i} onClick={()=>handlesDeleteDiets(e)}>{e}</button>
-        })}
     </div>
+        {/*STEPS*/}
+        <label className={style.labelDeleteSteps}>Steps to Steps</label>
+        <div className={style.boton_delete_steps}>
+        {input.steps?.map((e,a)=>{
+            return <span key={a}  className={style.steps}>{e.number}°: {e.step}</span>
+        })}
+        </div>
+        {/*DIETS*/}
+        <div className={style.boton_delete_Diets}>
+        {input.diets?.map((e,i)=>{
+            return <button key={i} className={style.boton_diets} onClick={()=>handlesDeleteDiets(e)}>{e}</button>
+        })}
+        </div >
     <footer className={style.foo}>
-            <h4 className={style.H}>creado con amor @Dionel</h4>
+            <h4 className={style.H}>Creado Con Amor @Dionel</h4>
     </footer>
     </>
   )

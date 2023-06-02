@@ -31,6 +31,7 @@ export default function NavBar() {
         <Link to="/create"><button className={style.boton}>Create</button></Link>
         <SearchBar/>
     </div>
+    
     {location.pathname === "/home" && <div>
     {/*ORDEN POR API O DB*/}
     <select className={style.select} defaultValue ='msg' onChange={handlesOrdenByApiAndDb}>
