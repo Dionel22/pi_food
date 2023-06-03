@@ -9,7 +9,7 @@ const datas = require("./data.json")
 
 //-------All-Food--Api---------
 const getAllFoodApi = async () => {
-  // let datas = (await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=100&offset=0&addRecipeInformation=true&apiKey=${DB_APi_KEY}`)).data
+   //let datas = (await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=100&offset=0&addRecipeInformation=true&apiKey=${DB_APi_KEY}`)).data
     let result = datas.results.map((e)=>{
         return {
             id: e.id,
