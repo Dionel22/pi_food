@@ -24,7 +24,7 @@ export default function Form() {
        dispatch(getAllDiets())
     },[dispatch]);
 
-    const handlesImput = (e) => {
+    const handleInput = (e) => {
        const {name, value} = e.target;
        setInput({
             ...input,
@@ -35,26 +35,15 @@ export default function Form() {
             [name]: value
         }));
 }
-    const handlesSteps = (e) => {
+    const handleSteps = (e) => {
        const {name ,value} = e.target;
         setInputSteps({
                 ...inputSteps,
                 [name]:  value
             })
 }
-   /* const handlesDeleteSteps = (data) => {
-        const filtar = input.steps.filter((e) => e.step !== data.step && e.number !== data.number)
-        setInput({
-          ...input,
-          steps: filtar
-      })
-      setError(validation({
-          ...input,
-          steps: filtar
-      }))  
 
-}*/
-    const handlesBoton = (e) => {
+    const handleButton = (e) => {
        e.preventDefault()
        console.log(e)
        if (inputSteps.number && inputSteps.step) {
@@ -88,37 +77,37 @@ export default function Form() {
     }
 
     const handlesDeleteDiets = (value) => {
-     //   console.log(value)
-        const filtar = input.diets.filter((e) => e !== value)
-          setInput({
-            ...input,
-            diets: filtar
-        })
-        setError(validation({
-            ...input,
-            diets: filtar
-        }))  
-         
-    }
+        const filtered = input.diets.filter((_, index) => index !== value );
+        //console.log(value)
+        setInput({
+          ...input,
+          diets: filtered
+        });
+        setError({
+          ...error,
+          diets: filtered.length === 0 ? "Debes seleccionar al menos una dieta" : null
+        });
+      };
 
-    const handlesSumbit = (e) => {
-        e.preventDefault()
+    const handleSubmit = (e) => {
+        e.preventDefault();
+      
         if (Object.keys(error).length === 0) {
-            alert("FOOD creado con éxito!!")
-            dispatch(createFood(input))
-            setInput({
-                title: "",
-                image: "",
-                summary:"",
-                healthScore: "",
-                steps: [],
-                diets: []
-               })
-               setInputSteps({})
-        }else{
-            alert("Debes completar toda la información requerida!!")
+          alert("FOOD creado con éxito!!");
+          dispatch(createFood(input));
+          setInput({
+            title: "",
+            image: "",
+            summary: "",
+            healthScore: "",
+            steps: [],
+            diets: []
+          });
+          setInputSteps({});
+        } else {
+          alert("Debes completar toda la información requerida!!");
         }
-    }
+      };
    
     console.log("input", input)
   return (
@@ -136,7 +125,7 @@ export default function Form() {
         name="title" 
         value={input.title}
         className={style.inputTitle}
-        onChange={handlesImput}/>
+        onChange={handleInput}/>
         <label className={input.title ? style.titleTop :style.labelTitle}>Title</label>
         {error.title && <p className={style.pTitle}>{error.title}</p>}
         </div>
@@ -146,7 +135,7 @@ export default function Form() {
         name="summary"
         value={input.summary}
         className={style.inputSummary}
-        onChange={handlesImput}></textarea>
+        onChange={handleInput}></textarea>
         <label className={input.summary ? style.summaryTop :style.labelSummary}>Summary</label>
         {error.summary && <p className={style.pSummary}>{error.summary}</p>}
       </div>
@@ -158,7 +147,7 @@ export default function Form() {
         min="0"
         max="100"
         className={style.inputHealthScore}
-        onChange={handlesImput}/>
+        onChange={handleInput}/>
         <label className={input.healthScore ? style.HealthScoreTop :style.labelHealthScore}>Health Score</label>
         {error.healthScore && <p className={style.pHealthScore}>{error.healthScore}</p>}
         </div>
@@ -169,7 +158,7 @@ export default function Form() {
         name="image" 
         className={style.inputImage}
         value={input.image}
-        onChange={handlesImput}/>
+        onChange={handleInput}/>
         <label className={input.image ? style.ImageTop : style.labelImage}>Image url</label>
         {error.image && <p className={style.pImage}>{error.image}</p>}
         </div>
@@ -182,7 +171,7 @@ export default function Form() {
         max="10"
         className={style.inputStepsNumber}
         value={inputSteps.number ? inputSteps.number : 0}
-        onChange={handlesSteps}/>
+        onChange={handleSteps}/>
         <label className={style.StepsNumberTop}>Number</label>
 </div>
 
@@ -192,24 +181,24 @@ export default function Form() {
         name="step"
         value={inputSteps.step? inputSteps.step : ""}
         className={style.inputSteps}
-        onChange={handlesSteps}/>
+        onChange={handleSteps}/>
         <label className={style.StepsTop}>Steps</label>
         </div>
         {error.steps ? <p className={style.pSteps} >{error.steps}</p>: null}
 
-        <button className={style.boton_steps} onClick={handlesBoton}>listo</button>
+        <button className={style.boton_steps} onClick={handleButton}>listo</button>
 
         <div className={style.input_field_Diets}>
         {<select className={style.selectDiets} onChange={handlesDiets} defaultValue ='msg'>
             <option value="msg" disabled>Diets</option>
          {allDiets?.map((e, i)=>{
-            return <option key={i} value={input.diets.length === 0 ? "msg" :e.name} >{e.name}</option>
+            return <option key={i} value={e.name} >{e.name}</option>
          })}</select>}
          <label className={style.labelDiets}>Diets</label>
          {error.diets && <p className={style.pDiets}>{error.diets}</p>/*handlesDeleteDiets */}
          
       </div>
-        <button onClick={handlesSumbit} className={style.create_Boton} >Create</button>
+        <button onClick={handleSubmit} className={style.create_Boton} >Create</button>
  </form>
 
     </div>

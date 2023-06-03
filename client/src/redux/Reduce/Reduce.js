@@ -1,4 +1,15 @@
-import { All_FOOD, GET_BY_FILTER_DIETS, GET_BY_NAME, GET_BY_ORDEN_API_DB, GET_BY_ORDEN_ASC_O_DES, GET_BY_ORDEN_FOOD, GET_DETAIL, GET_DIETS, POST_FOOD, RESET } from "../Actions/types"
+import { 
+       All_FOOD, 
+       GET_BY_FILTER_DIETS, 
+       GET_BY_NAME, 
+       GET_BY_ORDEN_API_DB, 
+       GET_BY_ORDEN_ASC_O_DES, 
+       GET_BY_ORDEN_FOOD, 
+       GET_DETAIL, 
+       GET_DIETS, 
+       POST_FOOD, 
+       RESET 
+    } from "../Actions/types"
 
 const inicialState = {
     allFoods: [],
@@ -31,25 +42,25 @@ const reduce = (state = inicialState, action) => {
                 allFoods: action.payload
             }
         case GET_BY_ORDEN_ASC_O_DES:
-            const filterOrden = [...state.allFoods].sort((a,b)=>{
+            const sortedOrden = [...state.allFoods].sort((a, b) => {
                 const comparison = a.title.localeCompare(b.title);
                 return action.payload === "ascendentemente" ? comparison : -comparison;
-            })
-            return {
+              });
+              return {
                 ...state,
-                allFoods: filterOrden
-            }
+                allFoods: sortedOrden
+              };
         case GET_BY_ORDEN_FOOD:
-            const filt = [...state.allFoods].sort((a, b) => {
+            const filteredFoods = [...state.allFoods].sort((a, b) => {
                 const comparison = a.healthScore - b.healthScore;
                 return action.payload === "bajo" ? comparison : -comparison;
               });
              return{
                 ...state,
-                allFoods: filt
+                allFoods: filteredFoods
              }
         case GET_BY_ORDEN_API_DB:
-            const filtrarOrigen = action.payload === "All" ? state.allFoodsCopy :state.allFoodsCopy.filter((food)=> {
+            const filteredOrigin = action.payload === "All" ? state.allFoodsCopy :state.allFoodsCopy.filter((food)=> {
                 if(action.payload === "Api"){
                    return !isNaN(food.id) ? food.id :null
                    }
@@ -58,7 +69,7 @@ const reduce = (state = inicialState, action) => {
             
             return{
                 ...state,
-                allFoods: filtrarOrigen,
+                allFoods: filteredOrigin,
             }
         case GET_BY_FILTER_DIETS:
             const filtByDiets = [...state.allFoods].filter((food)=> food.diets?.some(diet => diet.name === action.payload))
@@ -76,7 +87,7 @@ const reduce = (state = inicialState, action) => {
                 ...state
             }
         default:
-          return {...state}
+          return state
     }
 }
 

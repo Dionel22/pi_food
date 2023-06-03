@@ -28,20 +28,19 @@ export const getAllFoods = () => {
       // Podrías despachar una acción para manejar el error en tu estado global si lo deseas
       return dispatch({
         type: All_FOOD,
-        payload: {msg: `Error al obtener los alimentos: ${error.message}`},
+        payload: { msg: `Error al obtener los alimentos: ${error.message}` },
       });
     }
   };
 };
+
 //rewset
 export const getReset = () => {
-  return async (dispatch) => {
-    
+  return (dispatch) => {
       return dispatch({
         type: RESET,
       });
-    
-    
+
   };
 };
 //Trae todo los Diets

@@ -9,19 +9,19 @@ export default function Detail() {
     const dispatch = useDispatch()
     let detail = useSelector((state)=> state.details)
 
-    useEffect(()=>{
-       dispatch(getDetail(id))
-    },[dispatch, id])
-
-    useEffect(()=>{
-      return ()=>  dispatch(getDesmonta())
-    },[dispatch])
+    useEffect(() => {
+      dispatch(getDetail(id));
+    
+      return () => {
+        dispatch(getDesmonta());
+      };
+    }, [dispatch, id]);
 
     //console.log("jsjd", detail)
   return (
     <>
    <div className={detail.msg? style.div1: style.div}>
-        { !detail.msg? <div>
+        { detail.id ? <div>
             <h2 className={style.id}>Id: {detail.id}</h2>
             <h2 className={style.name}>{detail.title}</h2>
             <img className={style.image} src={detail.image} alt={detail.title} />
