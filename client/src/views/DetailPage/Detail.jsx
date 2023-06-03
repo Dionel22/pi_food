@@ -15,13 +15,13 @@ export default function Detail() {
 
     useEffect(()=>{
       return ()=>  dispatch(getDesmonta())
-    },[])
+    },[dispatch])
 
-    console.log("jsjd", detail)
+    //console.log("jsjd", detail)
   return (
     <>
-    {!detail.msg ?<div className={style.div}>
-        <div>
+   <div className={detail.msg? style.div1: style.div}>
+        { !detail.msg? <div>
             <h2 className={style.id}>Id: {detail.id}</h2>
             <h2 className={style.name}>{detail.title}</h2>
             <img className={style.image} src={detail.image} alt={detail.title} />
@@ -40,13 +40,15 @@ export default function Detail() {
                 return <span key={i} className={style.paso}>{e?.number}° {e?.step}</span>
             })}
             </div>
+
+        </div>: <div>
+           <h2 className={style.msg}>{detail.msg}. </h2>
         </div>
+        }
         
-    </div>: 
-        <div>
-            <h2 className={style.msg}>{detail.msg}. </h2>
-        </div>}
-        <footer className={style.foo}>
+    </div> 
+       
+        <footer className={detail.msg  ? style.fooFalla :style.foo}>
             <h4 className={style.H}>creado con amor @Dionel</h4>
         </footer>
     </>

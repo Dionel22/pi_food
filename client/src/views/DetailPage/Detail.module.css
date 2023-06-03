@@ -12,6 +12,20 @@
     left: 75px;
     box-shadow: 3px 3px 3px 3px rgba(14, 14, 14, 0.458);
 }
+.div1{
+    display: grid;
+    position: relative;
+    background-color: #e19f06c7;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    margin: 10px;
+    border: 1px solid black;
+    width: 900px;
+    height: 430px;
+    left: 75px;
+    box-shadow: 3px 3px 3px 3px rgba(14, 14, 14, 0.458);
+}
 .boxSteps{
     display: grid;
     position: absolute;
@@ -131,7 +145,7 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     top: 5px;
     width: 490px;
-    margin: 1px;
+    margin: 4px;
     font-size: 10px;
     justify-content: center;
     align-items: center;
@@ -170,7 +184,8 @@
 .msg{
     display: flex;
     position: relative;
-    left: 30%;
+    left: 17%;
+    top: 160px;
     background-color: rgba(238, 11, 11, 0.911);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(20px);
@@ -183,3 +198,12 @@
     font-size: 20px;
     box-shadow: 3px 3px 3px 3px rgba(14, 14, 14, 0.458);
 }
+
+.fooFalla{
+    position: relative;
+    background-color: black;
+    margin-top: 30px;
+    height: 25px;
+    top: 40px;
+  }
+  

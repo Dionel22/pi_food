@@ -1,4 +1,5 @@
 .foo{
+  position: relative;
   background-color: black;
   margin-top: 30px;
   height: 25px;
@@ -8,9 +9,22 @@
   position: relative;
   background-color: black;
   margin-top: 30px;
-  height: 25px;
-  top: 265px;
+  height: 40px;
+  top: 240px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
+.select{
+  background-color: rgb(156, 49, 3);
+  color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 15px;
+  justify-content: center;
+  outline: none;
+}
+
 
 .H{
   display: flex;
