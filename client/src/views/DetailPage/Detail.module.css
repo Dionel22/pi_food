@@ -1,4 +1,4 @@
-.div{
+.div {
     display: grid;
     position: relative;
     background-color: #e19f06c7;
@@ -14,7 +14,8 @@
     padding: 10px;
     margin-bottom: 10px;
 }
-.div1{
+
+.div1 {
     display: grid;
     position: relative;
     background-color: #e19f06c7;
@@ -28,7 +29,8 @@
     left: 75px;
     box-shadow: 3px 3px 3px 3px rgba(14, 14, 14, 0.458);
 }
-.boxSteps{
+
+.boxSteps {
     display: grid;
     position: absolute;
     background-color: #53e106c7;
@@ -40,15 +42,16 @@
     width: 500px;
     height: 330px;
     left: 40%;
-    top: 52%;   
+    top: 52%;
 }
 
-.foo{
+.foo {
     background-color: black;
     margin-top: 30px;
     height: 25px;
-  }
-  .H{
+}
+
+.H {
     display: flex;
     position: relative;
     color: white;
@@ -57,11 +60,11 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-  
-  }
-  
 
-.image{
+}
+
+
+.image {
     display: grid;
     position: absolute;
     border-radius: 10px;
@@ -73,7 +76,7 @@
     border: 1px solid black;
 }
 
-.name{
+.name {
     display: grid;
     position: absolute;
     bottom: 710px;
@@ -85,7 +88,7 @@
     font-family: Heavitas;
 }
 
-.id{
+.id {
     display: grid;
     position: absolute;
     bottom: 665px;
@@ -95,7 +98,7 @@
     font-family: Heavitas;
 }
 
-.summary{
+.summary {
     display: grid;
     position: absolute;
     left: 53%;
@@ -105,7 +108,8 @@
     font-size: 14px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.Hsummary{
+
+.Hsummary {
     display: grid;
     position: absolute;
     left: 55%;
@@ -116,32 +120,33 @@
     font-family: Heavitas;
 }
 
-.diet{
+.diet {
     display: grid;
     position: relative;
     font-family: Heavitas;
     left: 12px;
-    top:357px;
+    top: 357px;
     width: 270px;
     margin: 5px;
     font-size: 15px;
     justify-content: center;
     background-color: blueviolet;
     border-radius: 3px;
-    
+
 }
-.Hdiet{
+
+.Hdiet {
     display: grid;
     position: relative;
     font-family: Heavitas;
     right: 18px;
-    top:355px;
+    top: 355px;
     width: 330px;
     margin: 5px;
     font-size: 20px;
 }
 
-.paso{
+.paso {
     display: flex;
     position: relative;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -155,7 +160,7 @@
     border-radius: 5px;
 }
 
-.Hpaso{
+.Hpaso {
     display: grid;
     position: absolute;
     font-family: Heavitas;
@@ -165,7 +170,8 @@
     margin: 5px;
     font-size: 20px;
 }
-.healthScore{
+
+.healthScore {
     display: grid;
     position: absolute;
     font-family: Heavitas;
@@ -174,12 +180,13 @@
     margin: 2px;
     font-size: 20px;
 }
-.div span:hover{
+
+.div span:hover {
     background-color: #fffffffa;
     color: rgb(28, 148, 4);
 }
 
-.msg{
+.msg {
     display: flex;
     position: relative;
     left: 17%;
@@ -197,11 +204,10 @@
     box-shadow: 3px 3px 3px 3px rgba(14, 14, 14, 0.458);
 }
 
-.fooFalla{
+.fooFalla {
     position: relative;
     background-color: black;
     margin-top: 30px;
     height: 25px;
     top: 40px;
-  }
-  
+}

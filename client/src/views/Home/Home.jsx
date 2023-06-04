@@ -9,28 +9,23 @@ import { ordenAseByDec, ordenByApiAndDb, ordenByDiets, ordenFood } from "../../r
 export default function Home() {
   const dispatch = useDispatch()
   const allFoods = useSelector((state) => state.allFoods)
- // console.log(allFoods)
   const [pagina, setPagina] = useState(1)
   const currentPagina = 9;
   const nextPagina = pagina * currentPagina;
   const lastPagina = nextPagina - currentPagina;
-  const allFoodsPag = allFoods.msg ? allFoods: allFoods.slice(lastPagina,nextPagina);
+  const allFoodsPag = allFoods.msg ? allFoods : allFoods.slice(lastPagina, nextPagina);
 
 
- const handlesPag = (value) =>{
-  setPagina(value)
- }
- const handlesPagNext = (value) =>{
-  setPagina(value)
- }
- console.log("llf",allFoodsPag)
+  const handlesPag = (value) => {
+    setPagina(value)
+  }
+  const handlesPagNext = (value) => {
+    setPagina(value)
+  }
 
-  useEffect(()=>{
-    if (allFoodsPag.length === 0) {
-      console.log("-------")
-      dispatch(getAllFoods())
-    }
-  },[dispatch])
+  useEffect(() => {
+    dispatch(getAllFoods())
+  }, [dispatch])
 
   const handlesOrdenByApiAndDb = (event) => {
     dispatch(ordenByApiAndDb(event.target.value))
@@ -51,18 +46,16 @@ export default function Home() {
     dispatch(ordenFood(event.target.value))
     setPagina(1)
   }
-  const handleReset = (event) => {
+  const handleReset = () => {
     dispatch(getReset())
     setPagina(1)
   }
 
- // console.log("aa",allFoodsPag)
-
   return (
     <>
       <div>
-    {/*ORDEN POR API O DB*/}
-    <select className={style.select} defaultValue ='msg' onChange={handlesOrdenByApiAndDb}>
+        {/*ORDEN POR API O DB*/}
+        <select className={style.select} defaultValue='msg' onChange={handlesOrdenByApiAndDb}>
           <option value="msg" disabled>Created In</option>
           <option value="All">All</option>
           <option value="Api">Api</option>
@@ -70,8 +63,8 @@ export default function Home() {
         </select>
 
         {/*ORDEN POR DIETA*/}
-        <select className={style.select} defaultValue ='msg' onChange={handlesOrdenByDiets}>
-        <option value="msg" disabled>Type of Diets</option>
+        <select className={style.select} defaultValue='msg' onChange={handlesOrdenByDiets}>
+          <option value="msg" disabled>Type of Diets</option>
           <option value="gluten free">gluten free</option>
           <option value="dairy free">dairy free</option>
           <option value="lacto ovo vegetarian">lacto ovo vegetarian</option>
@@ -84,29 +77,33 @@ export default function Home() {
           <option value="fodmap friendly">fodmap friendly</option>
         </select>
 
-        {/*ORDEN POR comida*/}
-        <select className={style.select} defaultValue ='msg' onChange={handlesOrdenByComida}>
-        <option value="msg" disabled>Health Score</option>
+        {/*ORDEN POR HEALTH SCORE*/}
+        <select className={style.select} defaultValue='msg' onChange={handlesOrdenByComida}>
+          <option value="msg" disabled>Health Score</option>
           <option value="alto">100 to 0</option>
           <option value="bajo">0 to 100</option>
         </select>
 
-        {/*ORDEN POR ASC*/}
-        <select className={style.select} defaultValue ='msg' onChange={handlesOrdenByAseAndDec}>
-        <option value="msg" disabled>Alphabetic</option>
+        {/*ORDEN POR ASC Y DEC*/}
+        <select className={style.select} defaultValue='msg' onChange={handlesOrdenByAseAndDec}>
+          <option value="msg" disabled>Alphabetic</option>
           <option value="ascendentemente">A-Z</option>
           <option value="descendentemente">Z-A</option>
         </select>
 
+        {/*RESETEA*/}
         <button className={style.select} onClick={handleReset}>Reset</button>
 
-        <Paginado currentPagina={currentPagina} allFoods={allFoods.length} handlesPag={handlesPag} handlesPagNext={handlesPagNext} pagina={pagina}/>
-        <Cards allFoods={allFoodsPag}/>
-        </div>
-      
-      {allFoods.msg ?  <footer className={style.fooFalla}>
-          <h4 className={style.H}>creado con amor @Dionel</h4>
-        </footer> : null}
+        <Paginado
+          currentPagina={currentPagina}
+          allFoods={allFoods.length}
+          handlesPag={handlesPag}
+          handlesPagNext={handlesPagNext}
+          pagina={pagina}
+        />
+
+        <Cards allFoods={allFoodsPag} />
+      </div>
     </>
   )
 }

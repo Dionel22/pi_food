@@ -1,4 +1,4 @@
-.div{
+.div {
     display: flex;
     position: relative;
     /*background: linear-gradient(to
@@ -14,18 +14,15 @@
     margin: 0;
     box-shadow: 3px 3px 3px 3px rgba(14, 14, 14, 0.683);
     cursor: pointer;
-    transform: translate(
-        0
-    );
-    transition: transform  0.25s ease-out;
-}
-.div:hover{
-    transform: scale(
-        1.03
-    );
+    transform: translate(0);
+    transition: transform 0.25s ease-out;
 }
 
-.msg{
+.div:hover {
+    transform: scale(1.03);
+}
+
+.msg {
     display: flex;
     position: relative;
     left: 30%;
@@ -42,21 +39,21 @@
     box-shadow: 3px 3px 3px 3px rgba(14, 14, 14, 0.458);
 }
 
-.types{
+.types {
     display: flex;
     position: relative;
-    font-size: 12px;
+    font-size: 11px;
     top: 68%;
     margin: 3px;
-    right: 190px;
-    width: 150px;
+    right: 165px;
+    width: 106px;
     height: 10px;
     color: #000000;
     justify-content: center;
     align-items: center;
 }
 
-.name{
+.name {
     display: flex;
     position: absolute;
     font-size: 14px;
@@ -68,19 +65,19 @@
     margin: 5px;
 }
 
-.diet{
-    display: flex;
+.diet {
+    display: grid;
     position: absolute;
     font-size: 15px;
     bottom: 31%;
-    left: 29%;
+    left: 26%;
     color: rgb(0, 0, 0);
     justify-content: center;
     align-items: center;
     margin: 5px;
 }
 
-.image{
+.image {
     display: flex;
     position: relative;
     width: 97%;
@@ -91,6 +88,7 @@
     border: 1px solid black;
 }
 
-.link{
+.link {
     text-decoration: none;
 }
+

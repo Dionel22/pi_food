@@ -1,4 +1,4 @@
-.div{
+.div {
     display: flex;
     position: relative;
     border-radius: 108px 0;
@@ -12,13 +12,14 @@
     left: 8%;
     box-shadow: 3px 3px 3px 3px rgba(14, 14, 14, 0.458);
 }
-.foo{
+
+.foo {
     background-color: black;
     margin-top: 30px;
     height: 25px;
 }
 
-.H{
+.H {
     display: flex;
     position: relative;
     color: white;
@@ -28,7 +29,8 @@
     align-items: center;
     text-align: center;
 }
-.create{
+
+.create {
     display: flex;
     position: relative;
     color: rgb(0, 0, 0);
@@ -41,7 +43,7 @@
     left: 130%;
 }
 
-.create_Boton{
+.create_Boton {
     display: grid;
     position: absolute;
     top: 95%;
@@ -52,7 +54,8 @@
     font-size: 20px;
     font-family: Insaniburger;
 }
-.create_Boton:hover{
+
+.create_Boton:hover {
     outline-offset: 3px;
     background-color: aqua;
     color: black;
@@ -60,11 +63,11 @@
 
 /*---------Title------------*/
 
-.input_field_title{
+.input_field_title {
     position: absolute;
 }
 
-.input_field_title .inputTitle{
+.input_field_title .inputTitle {
     width: 350px;
     height: 50px;
     border-radius: 6px;
@@ -79,7 +82,8 @@
     display: flex;
     position: absolute;
 }
-.input_field_title .labelTitle{
+
+.input_field_title .labelTitle {
     position: absolute;
     top: 35px;
     left: 247px;
@@ -91,7 +95,7 @@
 
 }
 
-.inputTitle:focus ~.labelTitle{
+.inputTitle:focus~.labelTitle {
     position: absolute;
     top: 10px;
     left: 245px;
@@ -99,9 +103,10 @@
     padding: 0 2px;
     text-shadow: 2px 2px #e5cd6e, -2px -2px #e5cd6efa, 2px -2px #e5cd6efb, -2px 2px #e5cd6e;
 }
-.pTitle{
+
+.pTitle {
     display: flex;
-    position: absolute;   
+    position: absolute;
     color: rgb(255, 255, 255);
     font-family: Insaniburger;
     outline: none;
@@ -118,7 +123,7 @@
     text-align: center;
 }
 
-.titleTop{
+.titleTop {
     position: relative;
     bottom: 2px;
     left: 245px;
@@ -127,13 +132,14 @@
     text-shadow: 2px 2px #e5cd6e, -2px -2px #e5cd6efa, 2px -2px #e5cd6efb, -2px 2px #e5cd6e;
     font-family: Insaniburger;
 }
+
 /*--------------SUMMARY--------------------------*/
 
-.input_field_summary{
+.input_field_summary {
     position: absolute;
 }
 
-.summaryTop{
+.summaryTop {
     position: relative;
     top: 116px;
     left: 245px;
@@ -143,7 +149,7 @@
     font-family: Insaniburger;
 }
 
-.input_field_summary .inputSummary{
+.input_field_summary .inputSummary {
 
     width: 350px;
     height: 50px;
@@ -160,7 +166,8 @@
     position: absolute;
     top: 120px;
 }
-.input_field_summary .labelSummary{
+
+.input_field_summary .labelSummary {
     position: absolute;
     top: 155px;
     left: 247px;
@@ -172,7 +179,7 @@
 
 }
 
-.inputSummary:focus ~.labelSummary{
+.inputSummary:focus~.labelSummary {
     position: absolute;
     top: 128px;
     left: 245px;
@@ -181,9 +188,9 @@
     text-shadow: 2px 2px #e5cd6e, -2px -2px #e5cd6efa, 2px -2px #e5cd6efb, -2px 2px #e5cd6e;
 }
 
-.pSummary{
+.pSummary {
     display: flex;
-    position: absolute;   
+    position: absolute;
     margin: 2px;
     color: rgb(255, 255, 255);
     font-family: Insaniburger;
@@ -200,13 +207,14 @@
     text-align: center;
     border-radius: 10px;
 }
+
 /*--------------Health---Score--------------------------*/
 
-.input_field_healthScore{
+.input_field_healthScore {
     position: absolute;
 }
 
-.HealthScoreTop{
+.HealthScoreTop {
     position: relative;
     top: 227px;
     left: 250px;
@@ -216,7 +224,7 @@
     font-family: Insaniburger;
 }
 
-.input_field_healthScore .inputHealthScore{
+.input_field_healthScore .inputHealthScore {
 
     width: 350px;
     height: 50px;
@@ -233,7 +241,8 @@
     position: absolute;
     top: 230px;
 }
-.input_field_healthScore .labelHealthScore{
+
+.input_field_healthScore .labelHealthScore {
     position: absolute;
     top: 265px;
     left: 245px;
@@ -245,7 +254,7 @@
     width: 130px;
 }
 
-.inputHealthScore:focus ~.labelHealthScore{
+.inputHealthScore:focus~.labelHealthScore {
     top: 238px;
     left: 237px;
     font-size: 17px;
@@ -253,9 +262,9 @@
     text-shadow: 2px 2px #e5cd6e, -2px -2px #e5cd6efa, 2px -2px #e5cd6efb, -2px 2px #e5cd6e;
 }
 
-.pHealthScore{
+.pHealthScore {
     display: flex;
-    position: absolute;   
+    position: absolute;
     margin: 2px;
     color: rgb(255, 255, 255);
     font-family: Insaniburger;
@@ -275,11 +284,11 @@
 
 /*--------------Image--------------------------*/
 
-.input_field_Image{
+.input_field_Image {
     position: absolute;
 }
 
-.ImageTop{
+.ImageTop {
     position: relative;
     top: 337px;
     left: 249px;
@@ -289,7 +298,7 @@
     font-family: Insaniburger;
 }
 
-.input_field_Image .inputImage{
+.input_field_Image .inputImage {
     width: 350px;
     height: 50px;
     border-radius: 6px;
@@ -305,7 +314,8 @@
     position: absolute;
     top: 341px;
 }
-.input_field_Image .labelImage{
+
+.input_field_Image .labelImage {
     position: absolute;
     top: 375px;
     left: 245px;
@@ -317,7 +327,7 @@
     width: 130px;
 }
 
-.inputImage:focus ~.labelImage{
+.inputImage:focus~.labelImage {
     top: 349px;
     left: 222px;
     font-size: 17px;
@@ -325,9 +335,9 @@
     text-shadow: 2px 2px #e5cd6e, -2px -2px #e5cd6efa, 2px -2px #e5cd6efb, -2px 2px #e5cd6e;
 }
 
-.pImage{
+.pImage {
     display: flex;
-    position: absolute;   
+    position: absolute;
     margin: 2px;
     color: rgb(255, 255, 255);
     font-family: Insaniburger;
@@ -344,13 +354,14 @@
     text-align: center;
     border-radius: 10px;
 }
+
 /*--------------Steps--Number--------------------------*/
 
-.input_field_Steps_Number{
+.input_field_Steps_Number {
     position: absolute;
 }
 
-.StepsNumberTop{
+.StepsNumberTop {
     position: relative;
     top: 447px;
     left: 241px;
@@ -360,7 +371,7 @@
     font-family: Insaniburger;
 }
 
-.input_field_Steps_Number .inputStepsNumber{
+.input_field_Steps_Number .inputStepsNumber {
     width: 30px;
     height: 50px;
     border-radius: 6px;
@@ -379,11 +390,11 @@
 }
 
 /*--------------Steps----------------------*/
-.input_field_Steps{
+.input_field_Steps {
     position: absolute;
 }
 
-.StepsTop{
+.StepsTop {
     position: relative;
     top: 447px;
     left: 335px;
@@ -393,7 +404,7 @@
     font-family: Insaniburger;
 }
 
-.input_field_Steps .inputSteps{
+.input_field_Steps .inputSteps {
     width: 250px;
     height: 50px;
     border-radius: 6px;
@@ -412,7 +423,7 @@
 }
 
 
-.boton_steps{
+.boton_steps {
     position: absolute;
     border-radius: 5px;
     border: 1px solid black;
@@ -424,14 +435,14 @@
     font-size: 20px;
 }
 
-.boton_steps:hover{
+.boton_steps:hover {
     outline-offset: 3px;
     background-color: rgb(255, 255, 255);
     color: rgb(4, 4, 4);
 }
 
 /*-----------Boton---Delete--Steps------------*/
-.boton_delete_steps{
+.boton_delete_steps {
     display: grid;
     position: absolute;
     border-radius: 5px;
@@ -444,7 +455,8 @@
     width: 600px;
     margin: 5px;
 }
-.labelDeleteSteps{
+
+.labelDeleteSteps {
     position: absolute;
     right: 470px;
     top: 700px;
@@ -454,7 +466,7 @@
     font-size: 30px;
 }
 
-.steps{
+.steps {
     display: flex;
     position: relative;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -468,15 +480,16 @@
     text-align: center;
     color: white;
 }
-.boton_delete_steps span:hover{
+
+.boton_delete_steps span:hover {
     background-color: #fffffffa;
     color: rgb(0, 0, 0);
 }
 
 
-.pSteps{
+.pSteps {
     display: flex;
-    position: absolute;   
+    position: absolute;
     margin: 2px;
     color: rgb(255, 255, 255);
     font-family: Insaniburger;
@@ -496,11 +509,11 @@
 
 /*----------Diets-----------*/
 
-.input_field_Diets{
+.input_field_Diets {
     position: absolute;
 }
 
-.input_field_Diets .labelDiets{
+.input_field_Diets .labelDiets {
     position: absolute;
     top: 1035px;
     left: 355px;
@@ -513,9 +526,9 @@
 }
 
 
-.pDiets{
+.pDiets {
     display: flex;
-    position: absolute;   
+    position: absolute;
     margin: 2px;
     color: rgb(255, 255, 255);
     font-family: Insaniburger;
@@ -534,7 +547,7 @@
 }
 
 /*----------boton--Delete--Diets--------*/
-.boton_delete_Diets{
+.boton_delete_Diets {
     display: grid;
     position: absolute;
     left: 156px;
@@ -549,7 +562,8 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 0px;
 }
-.boton_diets{
+
+.boton_diets {
     position: relative;
     background-color: #307f09;
     color: rgb(255, 255, 255);
@@ -563,25 +577,29 @@
     border-radius: 5px;
     border: 1px solid black;
 }
-.label_diets{
+
+.label_diets {
     position: relative;
     color: rgb(255, 255, 255);
     font-size: 11px;
     margin: 2px;
     bottom: 2px;
 }
+
 /*------img-------*/
-.cuchillo{
+.cuchillo {
     display: flex;
     position: absolute;
     left: -150px;
 }
-.tenedor{
+
+.tenedor {
     display: flex;
     position: absolute;
     left: 470px;
 }
-.gorro{
+
+.gorro {
     display: flex;
     position: absolute;
     top: 5px;
