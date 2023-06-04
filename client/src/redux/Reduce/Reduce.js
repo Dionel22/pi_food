@@ -48,7 +48,8 @@ const reduce = (state = inicialState, action) => {
               });
               return {
                 ...state,
-                allFoods: sortedOrden
+                allFoods: sortedOrden,
+                allFoodsCopy: sortedOrden
               };
         case GET_BY_ORDEN_FOOD:
             const filteredFoods = [...state.allFoods].sort((a, b) => {
@@ -57,7 +58,8 @@ const reduce = (state = inicialState, action) => {
               });
              return{
                 ...state,
-                allFoods: filteredFoods
+                allFoods: filteredFoods,
+                allFoodsCopy: filteredFoods
              }
         case GET_BY_ORDEN_API_DB:
             const filteredOrigin = action.payload === "All" ? state.allFoodsCopy :state.allFoodsCopy.filter((food)=> {
@@ -72,7 +74,7 @@ const reduce = (state = inicialState, action) => {
                 allFoods: filteredOrigin,
             }
         case GET_BY_FILTER_DIETS:
-            const filtByDiets = [...state.allFoods].filter((food)=> food.diets?.some(diet => diet.name === action.payload))
+            const filtByDiets = [...state.allFoodsCopy].filter((food)=> food.diets?.some(diet => diet.name === action.payload))
             return{
                 ...state,
                 allFoods: filtByDiets

@@ -5,9 +5,9 @@ import { useParams } from "react-router-dom"
 import { getDesmonta, getDetail } from "../../redux/Actions/action"
 
 export default function Detail() {
-    const { id } = useParams()
-    const dispatch = useDispatch()
-    let detail = useSelector((state)=> state.details)
+    const { id } = useParams();
+    const dispatch = useDispatch();
+    let detail = useSelector((state)=> state.details);
 
     useEffect(() => {
       dispatch(getDetail(id));
@@ -16,6 +16,7 @@ export default function Detail() {
         dispatch(getDesmonta());
       };
     }, [dispatch, id]);
+
 
     //console.log("jsjd", detail)
   return (

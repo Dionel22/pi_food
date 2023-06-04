@@ -24,7 +24,7 @@ export default function SearchBar() {
         className={style.input} 
         type="text" 
         placeholder="busqueda..." 
-        value={name}
+        value={name.trim()}
         onChange={handlesInput} />
         <button className={style.boton} onClick={handlesSubmit}>Buscar</button>
     </div>

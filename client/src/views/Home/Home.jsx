@@ -23,9 +23,13 @@ export default function Home() {
  const handlesPagNext = (value) =>{
   setPagina(value)
  }
+ console.log("llf",allFoodsPag)
 
   useEffect(()=>{
-  dispatch(getAllFoods())
+    if (allFoodsPag.length === 0) {
+      console.log("-------")
+      dispatch(getAllFoods())
+    }
   },[dispatch])
 
   const handlesOrdenByApiAndDb = (event) => {
@@ -94,7 +98,7 @@ export default function Home() {
           <option value="descendentemente">Z-A</option>
         </select>
 
-        <button onClick={handleReset}>Reset</button>
+        <button className={style.select} onClick={handleReset}>Reset</button>
 
         <Paginado currentPagina={currentPagina} allFoods={allFoods.length} handlesPag={handlesPag} handlesPagNext={handlesPagNext} pagina={pagina}/>
         <Cards allFoods={allFoodsPag}/>
