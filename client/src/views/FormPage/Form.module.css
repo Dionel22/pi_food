@@ -8,7 +8,7 @@
     margin: 5px;
     margin-top: 10px;
     width: 900px;
-    height: 1600px;
+    height: 1450px;
     left: 8%;
     box-shadow: 3px 3px 3px 3px rgba(14, 14, 14, 0.458);
 }
@@ -427,7 +427,7 @@
 .boton_steps:hover{
     outline-offset: 3px;
     background-color: rgb(255, 255, 255);
-    color: rgb(3, 116, 7);
+    color: rgb(4, 4, 4);
 }
 
 /*-----------Boton---Delete--Steps------------*/
@@ -440,7 +440,7 @@
     top: 730px;
     height: 420px;
     font-family: Insaniburger;
-    background-color: #e5cd6e;
+    background-color: #dc4a11;
     width: 600px;
     margin: 5px;
 }
@@ -466,10 +466,11 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    color: white;
 }
 .boton_delete_steps span:hover{
     background-color: #fffffffa;
-    color: rgb(28, 148, 4);
+    color: rgb(0, 0, 0);
 }
 
 
@@ -499,29 +500,13 @@
     position: absolute;
 }
 
-.input_field_Diets .selectDiets{
-    width: 380px;
-    height: 50px;
-    border-radius: 6px;
-    font-size: 17px;
-    padding: 0 15px;
-    border: 2px solid #000000;
-    background-color: #e5cd6e;
-    color: #000000;
-    outline: none;
-    left: 235px;
-    margin-top: 10px;
-    display: flex;
-    position: absolute;
-    top: 1041px;
-}
 .input_field_Diets .labelDiets{
     position: absolute;
     top: 1035px;
     left: 355px;
     transform: translateY(-50%);
     color: rgb(0, 0, 0);
-    font-size: 20px;
+    font-size: 30px;
     pointer-events: none;
     font-family: Insaniburger;
     width: 130px;
@@ -536,7 +521,7 @@
     font-family: Insaniburger;
     outline: none;
     left: 227px;
-    top: 1107px;
+    top: 1217px;
     margin: 5px;
     font-size: 13px;
     background-color: red;
@@ -552,15 +537,13 @@
 .boton_delete_Diets{
     display: grid;
     position: absolute;
-    border-radius: 5px;
-    border: 2px solid black;
-    left: 225px;
-    top: 1300px;
+    left: 156px;
+    top: 1050px;
     height: 130px;
     font-family: Insaniburger;
-    background-color: #e5cd6e;
     width: 600px;
-    margin: 5px;
+    height: 160px;
+    margin: 3px;
     justify-content: center;
     align-items: center;
     grid-template-columns: 1fr 1fr 1fr;
@@ -570,13 +553,22 @@
     position: relative;
     background-color: #307f09;
     color: rgb(255, 255, 255);
-    font-size: 15px;
-    margin: 5px;
-    width: 150px;
+    font-size: 11px;
+    margin: 2px;
+    width: 155px;
+    height: 23px;
+    justify-content: center;
     align-items: center;
     text-align: center;
     border-radius: 5px;
     border: 1px solid black;
+}
+.label_diets{
+    position: relative;
+    color: rgb(255, 255, 255);
+    font-size: 11px;
+    margin: 2px;
+    bottom: 2px;
 }
 /*------img-------*/
 .cuchillo{

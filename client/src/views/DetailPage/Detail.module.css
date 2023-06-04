@@ -11,6 +11,8 @@
     height: 730px;
     left: 75px;
     box-shadow: 3px 3px 3px 3px rgba(14, 14, 14, 0.458);
+    padding: 10px;
+    margin-bottom: 10px;
 }
 .div1{
     display: grid;
@@ -74,7 +76,7 @@
 .name{
     display: grid;
     position: absolute;
-    bottom: 687px;
+    bottom: 710px;
     left: 3%;
     justify-content: center;
     align-items: center;
@@ -150,7 +152,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 .Hpaso{
@@ -177,10 +179,6 @@
     color: rgb(28, 148, 4);
 }
 
-.div span:active{
-    background-color: rgb(189, 23, 15);
-    color: azure;
-}
 .msg{
     display: flex;
     position: relative;

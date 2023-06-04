@@ -11,7 +11,7 @@ export default function Detail() {
 
     useEffect(() => {
       dispatch(getDetail(id));
-    
+    //se desmonta
       return () => {
         dispatch(getDesmonta());
       };
@@ -42,15 +42,11 @@ export default function Detail() {
             </div>
 
         </div>: <div>
-           <h2 className={style.msg}>{detail.msg}. </h2>
+         { detail.msg && <h2 className={style.msg}>{detail.msg}. </h2>}
         </div>
         }
         
     </div> 
-       
-        <footer className={detail.msg  ? style.fooFalla :style.foo}>
-            <h4 className={style.H}>creado con amor @Dionel</h4>
-        </footer>
     </>
   )
 }

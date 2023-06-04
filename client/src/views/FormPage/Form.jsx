@@ -45,9 +45,8 @@ export default function Form() {
 
     const handleButton = (e) => {
        e.preventDefault()
-       console.log(e)
        if (inputSteps.number && inputSteps.step) {
-           console.log("----------------------")
+          // console.log("----------------------")
         setInput({
             ...input,
             steps: [...input.steps, inputSteps]
@@ -61,33 +60,32 @@ export default function Form() {
         alert("fatla completar")
     }
 }
+    
+    
 
-    const handlesDiets = (e) => {
-        const { value } = e.target;
-      //  console.log(e.target.value)
-          setInput({
-            ...input,
-            diets: [...input.diets, value]
-        })
-        setError(validation({
-            ...input,
-            diets: [...input.diets, value]
-        }))  
-         
-    }
-
-    const handlesDeleteDiets = (value) => {
-        const filtered = input.diets.filter((_, index) => index !== value );
-        //console.log(value)
+    const handleCheckboxChange = (value) => {
+      //console.log("Ch",value)
+      if (input.diets.includes(value)) {
+        const filtered = input.diets.filter((val) => val !== value)
         setInput({
           ...input,
           diets: filtered
         });
-        setError({
-          ...error,
-          diets: filtered.length === 0 ? "Debes seleccionar al menos una dieta" : null
+        setError(validation({
+          ...input,
+          diets: filtered
+        }))
+      } else {
+        setInput({
+          ...input,
+          diets: [...input.diets, value]
         });
-      };
+        setError(validation({
+          ...input,
+          diets:  [...input.diets, value]
+        }))
+      }
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -109,7 +107,7 @@ export default function Form() {
         }
       };
    
-    console.log("input", input)
+   // console.log("input", input)
   return (
     <>
     <div className={style.div}>
@@ -146,6 +144,7 @@ export default function Form() {
         name="healthScore" 
         min="0"
         max="100"
+        value={input.healthScore}
         className={style.inputHealthScore}
         onChange={handleInput}/>
         <label className={input.healthScore ? style.HealthScoreTop :style.labelHealthScore}>Health Score</label>
@@ -187,15 +186,26 @@ export default function Form() {
         {error.steps ? <p className={style.pSteps} >{error.steps}</p>: null}
 
         <button className={style.boton_steps} onClick={handleButton}>listo</button>
-
+        
+        {/*DIETS*/}
         <div className={style.input_field_Diets}>
-        {<select className={style.selectDiets} onChange={handlesDiets} defaultValue ='msg'>
-            <option value="msg" disabled>Diets</option>
-         {allDiets?.map((e, i)=>{
-            return <option key={i} value={e.name} >{e.name}</option>
-         })}</select>}
-         <label className={style.labelDiets}>Diets</label>
-         {error.diets && <p className={style.pDiets}>{error.diets}</p>/*handlesDeleteDiets */}
+
+        <div className={style.boton_delete_Diets}>
+        {allDiets?.map((diet,i) => (
+        <div key={i} className={style.boton_diets}>
+          <label className={style.label_diets}>{diet.name} </label>
+            <input
+              type="checkbox"
+              value={diet.name}
+              checked={input.diets.includes(diet.name)}
+              onChange={() => handleCheckboxChange(diet.name)}
+            />
+            
+        </div>
+      ))}
+      </div>
+      <label className={style.labelDiets}>Diets</label>
+      {error.diets && <p className={style.pDiets}>{error.diets}</p>/*handlesDeleteDiets */}
          
       </div>
         <button onClick={handleSubmit} className={style.create_Boton} >Create</button>
@@ -209,12 +219,6 @@ export default function Form() {
             return <span key={a}  className={style.steps}>{e.number}°: {e.step}</span>
         })}
         </div>
-        {/*DIETS*/}
-        <div className={style.boton_delete_Diets}>
-        {input.diets?.map((e,i)=>{
-            return <button key={i} className={style.boton_diets} onClick={()=>handlesDeleteDiets(e)}>{e}</button>
-        })}
-        </div >
     <footer className={style.foo}>
             <h4 className={style.H}>Creado Con Amor @Dionel</h4>
     </footer>
