@@ -14,6 +14,7 @@ import {
 const inicialState = {
     allFoods: [],
     allFoodsCopy: [],
+    allFoodsCopyFilted: [],
     details: [],
     diets: []
 }
@@ -24,7 +25,8 @@ const reduce = (state = inicialState, action) => {
             return {
                 ...state,
                 allFoods: action.payload,
-                allFoodsCopy: action.payload
+                allFoodsCopy: action.payload,
+                allFoodsCopyFilted: action.payload,
             }
         case RESET:
             return {
@@ -46,10 +48,11 @@ const reduce = (state = inicialState, action) => {
                 const comparison = a.title.localeCompare(b.title);
                 return action.payload === "ascendentemente" ? comparison : -comparison;
             });
+           // console.log("soert",sortedOrden)
             return {
                 ...state,
                 allFoods: sortedOrden,
-                allFoodsCopy: sortedOrden
+                allFoodsCopyFilted: sortedOrden
             };
         case GET_BY_ORDEN_FOOD:
             const filteredFoods = [...state.allFoods].sort((a, b) => {
@@ -59,7 +62,7 @@ const reduce = (state = inicialState, action) => {
             return {
                 ...state,
                 allFoods: filteredFoods,
-                allFoodsCopy: filteredFoods
+                allFoodsCopyFilted: filteredFoods
             }
         case GET_BY_ORDEN_API_DB:
             const filteredOrigin = action.payload === "All" ? state.allFoodsCopy : state.allFoodsCopy.filter((food) => {
@@ -74,7 +77,7 @@ const reduce = (state = inicialState, action) => {
                 allFoods: filteredOrigin,
             }
         case GET_BY_FILTER_DIETS:
-            const filtByDiets = [...state.allFoodsCopy].filter((food) => food.diets?.some(diet => diet.name === action.payload))
+            const filtByDiets = [...state.allFoodsCopyFilted].filter((food) => food.diets?.some(diet => diet.name === action.payload))
             return {
                 ...state,
                 allFoods: filtByDiets
