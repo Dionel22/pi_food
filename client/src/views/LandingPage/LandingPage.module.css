@@ -20,7 +20,7 @@
     position: absolute;
     bottom: 70%;
     font-family: Heavitas;
-    color: rgb(25, 145, 4);
+    color: rgb(33, 168, 9);
     text-shadow: 1px 1px rgb(5, 5, 5), -1px -1px rgb(0, 0, 0), 1px -1px rgb(0, 0, 0), -1px 1px rgb(0, 0, 0);
 }
 .p{
@@ -29,7 +29,7 @@
     bottom: 30%;
     font-size: 15px;
     font-family: Heavitas;
-    color: rgb(25, 145, 4);
+    color: rgb(33, 168, 9);
     text-shadow: 1px 1px rgb(5, 5, 5), -1px -1px rgb(0, 0, 0), 1px -1px rgb(0, 0, 0), -1px 1px rgb(0, 0, 0);
 }
 .bien{
@@ -38,7 +38,7 @@
     bottom: 53%;
     font-family: Heavitas;
     font-size: 30px;
-    color: rgb(25, 145, 4);
+    color: rgb(33, 168, 9);
     text-shadow: 1px 1px rgb(5, 5, 5), -1px -1px rgb(0, 0, 0), 1px -1px rgb(0, 0, 0), -1px 1px rgb(0, 0, 0);
 }
 .boton{
