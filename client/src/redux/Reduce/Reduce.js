@@ -48,7 +48,7 @@ const reduce = (state = inicialState, action) => {
                 const comparison = a.title.localeCompare(b.title);
                 return action.payload === "ascendentemente" ? comparison : -comparison;
             });
-           // console.log("soert",sortedOrden)
+           //console.log("soert",sortedOrden)
             return {
                 ...state,
                 allFoods: sortedOrden,
@@ -59,6 +59,7 @@ const reduce = (state = inicialState, action) => {
                 const comparison = a.healthScore - b.healthScore;
                 return action.payload === "bajo" ? comparison : -comparison;
             });
+            //console.log("filtt", filteredFoods)
             return {
                 ...state,
                 allFoods: filteredFoods,
@@ -77,10 +78,10 @@ const reduce = (state = inicialState, action) => {
                 allFoods: filteredOrigin,
             }
         case GET_BY_FILTER_DIETS:
-            const filtByDiets = [...state.allFoodsCopyFilted].filter((food) => food.diets?.some(diet => diet.name === action.payload))
+            const filteredDiets = [...state.allFoodsCopyFilted].filter((food) => food.diets?.some(diet => diet.name === action.payload))
             return {
                 ...state,
-                allFoods: filtByDiets
+                allFoods: filteredDiets
             }
         case GET_DETAIL:
             return {

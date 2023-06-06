@@ -17,8 +17,6 @@ export default function Detail() {
     };
   }, [dispatch, id]);
 
-
-  //console.log("jsjd", detail)
   return (
     <>
       <div className={detail.msg ? style.div1 : style.div}>
