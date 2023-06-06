@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { createFood, getAllDiets } from "../../redux/Actions/action";
 import validation from "./validation";
+import NavBar from '../../components/NavBar/NavBar';
 
 
 export default function Form() {
@@ -107,6 +108,7 @@ export default function Form() {
 
   return (
     <>
+    <NavBar/>
       <div className={style.div}>
         <form >
           <h2 className={style.create}>CREATE BY FOOD</h2>

@@ -2,8 +2,7 @@ import style from './NavBar.module.css'
 import SearchBar from "../SearchBar/SearchBar";
 import { Link } from 'react-router-dom';
 
-export default function NavBar() {
-
+export default function NavBar({pagina}) {
   return (
     <div className={style.div}>
       <Link to="/">
@@ -13,7 +12,7 @@ export default function NavBar() {
           alt="henry"
         />
       </Link>
-      
+
       <Link to="/home">
         <button className={style.boton}>Home</button>
       </Link>
@@ -21,7 +20,7 @@ export default function NavBar() {
       <Link to="/create">
         <button className={style.boton}>Create</button>
       </Link>
-      <SearchBar />
+      <SearchBar pagina={pagina}/>
     </div>
   )
 }

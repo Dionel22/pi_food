@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useDispatch } from "react-redux"
 import { getByName } from '../../redux/Actions/action'
 
-export default function SearchBar() {
+export default function SearchBar(props) {
   const [name, setName] = useState("");
   const dispatch = useDispatch();
 
@@ -11,10 +11,12 @@ export default function SearchBar() {
     setName(event.target.value)
   }
 
+
   const handlesSubmit = (event) => {
     event.preventDefault()
     dispatch(getByName(name))
     setName("")
+    props.pagina(1)
   }
 
   return (

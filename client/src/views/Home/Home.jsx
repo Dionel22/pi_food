@@ -5,6 +5,8 @@ import Cards from "../../components/Cards/Cards";
 import Paginado from "../../components/Paginado/Paginado";
 import { getAllFoods, getReset } from "../../redux/Actions/action";
 import { ordenAseByDec, ordenByApiAndDb, ordenByDiets, ordenFood } from "../../redux/Actions/action";
+import SearchBar from '../../components/SearchBar/SearchBar';
+import NavBar from '../../components/NavBar/NavBar';
 
 export default function Home() {
   const dispatch = useDispatch()
@@ -20,6 +22,9 @@ export default function Home() {
     setPagina(value)
   }
   const handlesPagNext = (value) => {
+    setPagina(value)
+  }
+  const handlesPagSearch = (value) => {
     setPagina(value)
   }
 
@@ -54,6 +59,10 @@ export default function Home() {
   return (
     <>
       <div>
+
+        <NavBar pagina={handlesPagSearch}/>
+
+
         {/*ORDEN POR API O DB*/}
         <select className={style.select} defaultValue='msg' onChange={handlesOrdenByApiAndDb}>
           <option value="msg" disabled>Created In</option>

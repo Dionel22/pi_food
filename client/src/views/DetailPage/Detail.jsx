@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { getDesmonta, getDetail } from "../../redux/Actions/action"
+import NavBar from '../../components/NavBar/NavBar'
 
 export default function Detail() {
   const { id } = useParams();
@@ -19,6 +20,7 @@ export default function Detail() {
 
   return (
     <>
+      <NavBar />
       <div className={detail.msg ? style.div1 : style.div}>
         {detail.id ? <div>
           <h2 className={style.id}>Id: {detail.id}</h2>
