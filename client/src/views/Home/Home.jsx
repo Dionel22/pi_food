@@ -5,7 +5,6 @@ import Cards from "../../components/Cards/Cards";
 import Paginado from "../../components/Paginado/Paginado";
 import { getAllFoods, getReset } from "../../redux/Actions/action";
 import { ordenAseByDec, ordenByApiAndDb, ordenByDiets, ordenFood } from "../../redux/Actions/action";
-import SearchBar from '../../components/SearchBar/SearchBar';
 import NavBar from '../../components/NavBar/NavBar';
 
 export default function Home() {
