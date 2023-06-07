@@ -2,15 +2,14 @@ require('dotenv').config();
 const { DB_APi_KEY } = process.env;
 const axios = require("axios")
 const { Recipe, Diet } = require("../db");
-//es un json donde tengo 100 datos
-const datas = require("./data.json")
+
 
 
 
 //-------All-Food--Api---------
 const getAllFoodApi = async () => {
-   //let datas = (await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=100&offset=0&addRecipeInformation=true&apiKey=${DB_APi_KEY}`)).data
-    let result = datas.results.map((e)=>{
+   let response = (await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=100&offset=0&addRecipeInformation=true&apiKey=${DB_APi_KEY}`)).data
+    let result = response.results.map((e)=>{
         return {
             id: e.id,
             title: e.title,
@@ -74,18 +73,15 @@ const getByidDB = async (id) => {
     const recipe = await Recipe.findByPk(id, {
         include: { model: Diet, attributes: ["name"], through: { attributes: [] } }
       });
-    console.log(recipe)
     return recipe;
 }
 
 //---------POST----------
 const postRecipeDB = async (title, image, summary, healthScore, steps, diets) => {
-   // console.log(diets)
 
        const  savedRecipe = await Recipe.create({ title, image, summary, healthScore, steps });
        const dbase = await Diet.findAll({ where: { name: diets } });
        await savedRecipe.addDiet(dbase);
-       //console.log("dsd",dbase)
        return savedRecipe;
 
 }  
