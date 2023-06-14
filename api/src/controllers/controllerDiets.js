@@ -5,7 +5,8 @@ const { DB_APi_KEY } = process.env;
   
 const getAllDietsDB = async () => {
    const responseApi = (await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=100&offset=0&addRecipeInformation=true&apiKey=${DB_APi_KEY}`)).data
-   const responseDiets = responseApi.recipes.map((e) =>{ 
+   console.log(responseApi)
+   const responseDiets = responseApi.results.map((e) =>{ 
     return  e.diets?.map(el => {
         return {name: el}
       }) 
